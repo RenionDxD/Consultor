@@ -1,5 +1,6 @@
 import tkinter as tk
 import json
+from datetime import datetime
 
 
 def registrar_codigo(self):
@@ -11,21 +12,25 @@ def registrar_codigo(self):
         comentario = self.entry_comentario.get()
         contenido_texto = self.codigo_text.get("1.0", tk.END)
 
-        with open("data/data.json", 'r') as file:
+        with open("Consultor/data/data.json", 'r') as file:
             datos = json.load(file)
            
+        fecha_actual = datetime.now()
 
 
         nuevo_elemento = {
+            "favoitos":False,
             "lenguaje": lenguaje,
             "accion": accion,
             "comentario": comentario,
-            "codigo": contenido_texto
+            "codigo": contenido_texto,
+            "estadistica":0,
+            "fecha":fecha_actual.strftime("%Y-%m-%d")
         }
         datos["datos"].append(nuevo_elemento)
 
         # Escribir la estructura de datos actualizada en el archivo JSON
-        with open("data/data.json", 'w') as file:
+        with open("Consultor/data/data.json", 'w') as file:
             json.dump(datos, file, indent=2)
 
         

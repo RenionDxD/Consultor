@@ -1,5 +1,13 @@
 {
   "datos": [
-    
+    {
+      "favoitos": false,
+      "lenguaje": "Python",
+      "accion": "copir en portapapeles",
+      "comentario": "pip install pyperclip",
+      "codigo": "def copiar_al_portapapeles(self):\n        contenido = self.resultado_texto.get(\"1.0\", tk.END)\n        self.root.clipboard_clear()\n        self.root.clipboard_append(contenido)\n        self.root.update()\n",
+      "estadistica": 0,
+      "fecha": "2023-12-24"
+    }
   ]
 }

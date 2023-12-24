@@ -3,9 +3,9 @@ import tkinter as tk
 from tkinter import ttk
 import pyperclip
 
-with open("data/data.json", 'r') as file:
-        json_data = json.load(file)
-        datos = json_data["datos"]
+#with open("Consultor/data/data.json", 'r') as file:
+        #json_data = json.load(file)
+        #datos = json_data["datos"]
 
 
 def obtener_valores_unicos(self, datos, clave):
@@ -15,14 +15,22 @@ def obtener_selecciones(self ,event):
         seleccion_lenguaje = self.combo_lenguaje.get()
         seleccion_accion = self.combo_accion.get()
 
-
+        datos = Actualizar_dato() 
         for elementos in datos:
                 if elementos['lenguaje'] == seleccion_lenguaje and elementos['accion'] == seleccion_accion:
                         codigo = elementos['codigo']
 
-                        lenguaje = elementos['lenguaje']
+                        
                         accion = elementos['accion']
+                        fecha = elementos['fecha']
                         comentario = elementos['comentario']
+                        estadistica = elementos['estadistica']
+
+                        # Actualizar etiquetas en la ventana principal
+                        self.etiqueta_accion.config(text=f"Accion: {accion}")
+                        self.etiqueta_comentario.config(text=f"Comentario: {comentario}")
+                        self.etiqueta_fecha.config(text=f"Fecha: {fecha}")
+                        self.etiqueta_usado.config(text=f"Veces usado: {estadistica}")
 
 
                         self.resultado_texto.config(state="normal")  # Habilitar la edición
@@ -42,7 +50,8 @@ def copiar_al_portapapeles(self):
 
 
 def Actualizar_dato():
-        with open("data/data.json", 'r') as file:
+        with open("Consultor/data/data.json", 'r') as file:
                 datos = json.load(file)
                 datos = datos["datos"]
+                print(datos)
                 return datos
