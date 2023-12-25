@@ -15,7 +15,8 @@ def obtener_selecciones(self ,event):
         seleccion_lenguaje = self.combo_lenguaje.get()
         seleccion_accion = self.combo_accion.get()
 
-        datos = Actualizar_dato() 
+        metaData = Actualizar_dato() 
+        datos = metaData["datos"]
         for elementos in datos:
                 if elementos['lenguaje'] == seleccion_lenguaje and elementos['accion'] == seleccion_accion:
                         codigo = elementos['codigo']
@@ -25,12 +26,19 @@ def obtener_selecciones(self ,event):
                         fecha = elementos['fecha']
                         comentario = elementos['comentario']
                         estadistica = elementos['estadistica']
+                        elementos['estadistica'] = estadistica+1
+
+                        with open("Consultor/data/data.json", 'w') as file:
+                                  json.dump(metaData, file, indent=2)
+                        
 
                         # Actualizar etiquetas en la ventana principal
                         self.etiqueta_accion.config(text=f"Accion: {accion}")
                         self.etiqueta_comentario.config(text=f"Comentario: {comentario}")
                         self.etiqueta_fecha.config(text=f"Fecha: {fecha}")
                         self.etiqueta_usado.config(text=f"Veces usado: {estadistica}")
+
+                        
 
 
                         self.resultado_texto.config(state="normal")  # Habilitar la edición
@@ -52,6 +60,5 @@ def copiar_al_portapapeles(self):
 def Actualizar_dato():
         with open("Consultor/data/data.json", 'r') as file:
                 datos = json.load(file)
-                datos = datos["datos"]
-                print(datos)
+                #datos = datos["datos"]
                 return datos

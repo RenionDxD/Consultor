@@ -4,6 +4,10 @@ import json
 from modules.mainModule.logicMain import Actualizar_dato
 
 
+with open("Consultor/data/data.json", 'r') as file:
+                datos = json.load(file)
+                datos = datos["datos"]
+
 
 class Main(tk.Frame):
     from modules.mainModule.logicMain import obtener_valores_unicos, obtener_selecciones, copiar_al_portapapeles, Actualizar_dato
@@ -11,7 +15,7 @@ class Main(tk.Frame):
         super().__init__(root)
         self.root = root
 
-        datos = Actualizar_dato()
+        #datos = Actualizar_dato()
 
         # Panel que muestra la información
         self.panel_izquierdo = tk.Frame(self, width=1, bg="lightgray", bd=1, relief="solid")
@@ -65,7 +69,7 @@ class Main(tk.Frame):
 
 
         # Cuadro de texto para mostrar el resultado
-        self.resultado_texto = tk.Text(self, wrap="none", height=20, width=45)
+        self.resultado_texto = tk.Text(self, wrap="none", height=20, width=55)
         self.resultado_texto.config(state="disabled", selectbackground="gray")
         self.resultado_texto.pack(padx=20, pady=30)
 

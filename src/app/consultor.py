@@ -20,6 +20,9 @@ class Aplicacion:
         self.btn_pantalla2 = tk.Button(self.botones_frame, text="Pagina Agregar codigo", command=self.mostrar_pantalla2)
         self.btn_pantalla2.pack(side="left", padx=10)
 
+        self.btn_pantallaTareas = tk.Button(self.botones_frame, text="Lista de tareas", command=self.mostrar_pantalla2)
+        self.btn_pantallaTareas.pack(side="left", padx=10)
+
 
 
 
@@ -33,6 +36,12 @@ class Aplicacion:
         self.notas_text.config(selectbackground="green")
         self.notas_text.insert("1.0", "")
         self.notas_text.pack(side="bottom", padx=5, pady=5)
+        self.altura_original = self.notas_text['height']
+
+        # Expandir notas
+        self.btn_expandirNota = tk.Button(self.panel_notas, text="Expandir notas", command=self.expandirNotas)
+        self.btn_expandirNota.pack(side="left", padx=10)
+        
 
         # Etiqueta de notas
         tk.Label(self.panel_notas, text="Notas: ").pack(side="top")
@@ -41,18 +50,33 @@ class Aplicacion:
         self.pantalla1 = Main(root)
         self.pantalla2 = Agregar(root)
 
+
+        
+
         # Ocultar ambas pantallas al inicio
         self.mostrar_pantalla1()
 
     def mostrar_pantalla1(self):
         self.pantalla2.pack_forget()  # Ocultar pantalla 2 si está visible
         self.pantalla1.pack(expand=True)
+        self.notas_text.config(height=self.altura_original)
+        self.btn_expandirNota.pack(side="left", padx=10)
         #self.root.destroy()  # Destruir la ventana actual
 
     def mostrar_pantalla2(self):
         self.pantalla1.pack_forget()  # Ocultar pantalla 1 si está visible
         self.pantalla2.pack(expand=True)
+        self.notas_text.config(height=self.altura_original)
+        self.btn_expandirNota.pack(side="left", padx=10)
         #self.root.destroy()  # Destruir la ventana actual
+
+    def expandirNotas(self):
+        self.pantalla1.pack_forget()
+        self.pantalla2.pack_forget()
+        self.btn_expandirNota.pack_forget()
+        nueva_altura = self.notas_text['height'] + 35
+        self.notas_text.config(height=nueva_altura)
+        
 
             
 
