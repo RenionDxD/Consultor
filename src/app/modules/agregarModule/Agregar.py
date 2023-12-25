@@ -8,6 +8,7 @@ class Agregar(tk.Frame):
     from modules.agregarModule.logicAgregar import registrar_codigo
     def __init__(self, root):
         super().__init__(root)
+        self.configure(bg="#6E6D6D")
         
          # Panel que muestra la información
         self.panel_izquierdo = tk.Frame(self, width=1, bg="lightgray",bd=1, relief="solid")

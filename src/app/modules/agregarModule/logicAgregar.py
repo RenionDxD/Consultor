@@ -22,6 +22,7 @@ def registrar_codigo(self):
             "favoitos":False,
             "lenguaje": lenguaje,
             "accion": accion,
+            "dependencias": "",
             "comentario": comentario,
             "codigo": contenido_texto,
             "estadistica":0,

@@ -50,9 +50,6 @@ class Aplicacion:
         self.pantalla1 = Main(root)
         self.pantalla2 = Agregar(root)
 
-
-        
-
         # Ocultar ambas pantallas al inicio
         self.mostrar_pantalla1()
 
@@ -61,13 +58,14 @@ class Aplicacion:
         self.pantalla1.pack(expand=True)
         self.notas_text.config(height=self.altura_original)
         self.btn_expandirNota.pack(side="left", padx=10)
-        #self.root.destroy()  # Destruir la ventana actual
+        #self.btn_pantalla1.destroy()  # Destruir la ventana actual
 
     def mostrar_pantalla2(self):
         self.pantalla1.pack_forget()  # Ocultar pantalla 1 si está visible
         self.pantalla2.pack(expand=True)
         self.notas_text.config(height=self.altura_original)
         self.btn_expandirNota.pack(side="left", padx=10)
+        #self.pantalla1.destroy()
         #self.root.destroy()  # Destruir la ventana actual
 
     def expandirNotas(self):

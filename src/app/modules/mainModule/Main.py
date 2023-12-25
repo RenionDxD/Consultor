@@ -4,9 +4,6 @@ import json
 from modules.mainModule.logicMain import Actualizar_dato
 
 
-with open("Consultor/data/data.json", 'r') as file:
-                datos = json.load(file)
-                datos = datos["datos"]
 
 
 class Main(tk.Frame):
@@ -14,6 +11,12 @@ class Main(tk.Frame):
     def __init__(self, root):
         super().__init__(root)
         self.root = root
+        # Establecer un fondo gris oscuro
+        self.configure(bg="#6E6D6D")
+
+        with open("Consultor/data/data.json", 'r') as file:
+                datos = json.load(file)
+                datos = datos["datos"]
 
         #datos = Actualizar_dato()
 
@@ -49,14 +52,16 @@ class Main(tk.Frame):
        # Contenedor para los botones en la parte superior
         self.labels_frame = tk.Frame(self)
         self.labels_frame.pack(side="top", fill="both", expand=False, padx=1, pady=1)
+        self.labels_frame.configure(bg="#6E6D6D")
+        
 
         # Etiqueta Accion
         self.etiqueta_accion = tk.Label(self.labels_frame, text="Accion:")
-        self.etiqueta_accion.grid(row=0, column=0, padx=20, pady=1)
+        self.etiqueta_accion.grid(row=0, column=0, padx=20, pady=10)
 
         # Etiqueta Comentario
         self.etiqueta_comentario = tk.Label(self.labels_frame, text="Comentario:")
-        self.etiqueta_comentario.grid(row=0, column=1, padx=20, pady=1)
+        self.etiqueta_comentario.grid(row=0, column=1, padx=20, pady=10)
 
         # Etiqueta Fecha
         self.etiqueta_fecha = tk.Label(self.labels_frame, text="Fecha:")
@@ -72,6 +77,8 @@ class Main(tk.Frame):
         self.resultado_texto = tk.Text(self, wrap="none", height=20, width=55)
         self.resultado_texto.config(state="disabled", selectbackground="gray")
         self.resultado_texto.pack(padx=20, pady=30)
+        
+        
 
         # Botón para copiar al portapapeles
         boton_copiar = ttk.Button(self, text="Copiar al Portapapeles", command=self.copiar_al_portapapeles)
