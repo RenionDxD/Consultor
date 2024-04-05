@@ -6,8 +6,9 @@ from modules.agregarModule.Agregar import Agregar
 from PIL import Image, ImageTk
 from tkinter import *
 
-ColorBgConstant = "#242424"
-ColorLetterConstant = "#db7907"
+ColorBgConstant = "#21201c"
+ColorLetterConstant = "#da6b16"
+BorderColor = "#da6b16"
 font = "Fixedsys"
 
 class Aplicacion:
@@ -18,29 +19,34 @@ class Aplicacion:
 
         root.configure(bg=ColorBgConstant)
 
+        border_color = Frame(root, background=BorderColor)
+        border_color.pack(side="top", fill="both", expand=False, padx=2, pady=2)
+        
         # Contenedor para los botones en la parte superior
-        self.botones_frame = tk.Frame(root,background=ColorBgConstant)
-        self.botones_frame.pack(side="top", fill="both", expand=False, padx=1, pady=10)
+        self.botones_frame = tk.Frame(border_color,background=ColorBgConstant)
+        self.botones_frame.pack(side="top", fill="both", expand=False, padx=2, pady=2)
 
         # Botones para cambiar entre pantallas dentro del contenedor
-        self.btn_pantalla1 = tk.Button(self.botones_frame, text="Pagina principal",background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), command=self.mostrar_pantalla1)
-        self.btn_pantalla1.pack(side="left", padx=10)
+        self.btn_pantalla1 = tk.Button(self.botones_frame, text="Pagina principal",background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10),activeforeground=ColorBgConstant, activebackground=ColorLetterConstant, command=self.mostrar_pantalla1)
+        self.btn_pantalla1.pack(side="left",pady=5, padx=10)
 
-        self.btn_pantalla2 = tk.Button(self.botones_frame,background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text="Pagina Agregar codigo", command=self.mostrar_pantalla2)
-        self.btn_pantalla2.pack(side="left", padx=10)
+        self.btn_pantalla2 = tk.Button(self.botones_frame,background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10),activeforeground=ColorBgConstant, activebackground=ColorLetterConstant, text="Pagina Agregar codigo", command=self.mostrar_pantalla2)
+        self.btn_pantalla2.pack(side="left",pady=5, padx=10)
 
-        self.btn_pantallaTareas = tk.Button(self.botones_frame,background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text="Lista de tareas", command=self.mostrar_pantalla2)
-        self.btn_pantallaTareas.pack(side="left", padx=10)
+        self.btn_pantallaTareas = tk.Button(self.botones_frame,background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10),activeforeground=ColorBgConstant, activebackground=ColorLetterConstant, text="Lista de tareas", command=self.mostrar_pantalla2)
+        self.btn_pantallaTareas.pack(side="left",pady=5, padx=10)
 
 
 
         
 
 
+        border_color = Frame(root, background=BorderColor)
+        border_color.pack(side="bottom", fill="both", expand=True)
 
         # Panel que muestra notas
-        self.panel_notas = tk.Frame(root, bg=ColorBgConstant, bd=1, relief="solid")
-        self.panel_notas.pack(side="bottom", fill="both", expand=True)
+        self.panel_notas = tk.Frame(border_color, bg=ColorBgConstant, bd=1, relief="solid")
+        self.panel_notas.pack(side="bottom", fill="both", expand=True,padx=2, pady=2)
 
 
         # Notas
@@ -51,7 +57,7 @@ class Aplicacion:
         self.altura_original = self.notas_text['height']
 
         # Expandir notas
-        self.btn_expandirNota = tk.Button(self.panel_notas, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text="Expandir notas", command=self.expandirNotas)
+        self.btn_expandirNota = tk.Button(self.panel_notas, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10),activeforeground=ColorBgConstant, activebackground=ColorLetterConstant, text="Expandir notas", command=self.expandirNotas)
         self.btn_expandirNota.pack(side="left", padx=10)
         
 

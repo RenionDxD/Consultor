@@ -46,7 +46,7 @@ def registrar_codigo(self):
         guardar_limpiar()
         limpieza()
         respuesta = crear_modelos_cercania()
-        print(respuesta)
+        self.etiqueta_info.config(text=f"{respuesta}")
         
 
         # Limpiar el contenido actual del widget Text

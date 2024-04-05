@@ -4,8 +4,9 @@ from tkinter import *
 import json
 from modules.mainModule.logicMain import Actualizar_dato
 
-ColorBgConstant = "#242424"
-ColorLetterConstant = "#db7907"
+ColorBgConstant = "#21201c"
+ColorLetterConstant = "#da6b16"
+BorderColor = "#da6b16"
 font = "Fixedsys"
 
 class Main(tk.Frame):
@@ -24,9 +25,12 @@ class Main(tk.Frame):
 
         #datos = Actualizar_dato()
 
+        border_color = Frame(self, background=BorderColor)
+        border_color.pack(side="left", fill="y")
+
         # Panel que muestra la información
-        self.panel_izquierdo = tk.Frame(self, width=1, bg=ColorBgConstant, bd=1, relief="solid")
-        self.panel_izquierdo.pack(side="left", fill="y")
+        self.panel_izquierdo = tk.Frame(border_color, width=1, bg=ColorBgConstant, bd=1, relief="solid")
+        self.panel_izquierdo.pack(side="left", fill="y",padx=2, pady=2)
         
 
         # Crear Frames para las etiquetas y Combobox
@@ -49,12 +53,12 @@ class Main(tk.Frame):
 
 
         # Combo boxes
-        self.combo_accion = ttk.Combobox(frame_accion, width=25, foreground=ColorLetterConstant, background=ColorBgConstant, font=("Fixedsys", 10) ,values=self.obtener_valores_unicos(datos, "accion"))
+        self.combo_accion = ttk.Combobox(frame_accion, width=25, foreground=ColorLetterConstant, background=ColorBgConstant, font=("Fixedsys", 10) , values=self.obtener_valores_unicos(datos, "accion"))
         self.combo_accion.set("Seleccionar Acción")
         self.combo_accion.pack(side="left")
         self.combo_accion.bind("<<ComboboxSelected>>", self.obtener_selecciones)
 
-        self.combo_lenguaje = ttk.Combobox(frame_lenguaje, width=25, foreground=ColorLetterConstant, background=ColorBgConstant, font=("Fixedsys", 10) ,values=self.obtener_valores_unicos(datos, "lenguaje"))
+        self.combo_lenguaje = ttk.Combobox(frame_lenguaje, width=25, foreground=ColorLetterConstant, background=ColorBgConstant, font=("Fixedsys", 10) , values=self.obtener_valores_unicos(datos, "lenguaje"))
         self.combo_lenguaje.set("Seleccionar Lenguaje")
         self.combo_lenguaje.pack(side="left")
         self.combo_lenguaje.bind("<<ComboboxSelected>>", self.obtener_selecciones)
@@ -99,7 +103,7 @@ class Main(tk.Frame):
         
 
         # Botón para copiar al portapapeles
-        self.btn_expandirNota2 = tk.Button(self, text="Copiar al Portapapeles",background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), command=self.copiar_al_portapapeles)
+        self.btn_expandirNota2 = tk.Button(self, text="Copiar al Portapapeles",background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10),activeforeground=ColorBgConstant, activebackground=ColorLetterConstant, command=self.copiar_al_portapapeles)
         self.btn_expandirNota2.pack(pady=10)
 
 

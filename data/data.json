@@ -329,7 +329,7 @@
       "dependencias": "",
       "comentario": "poner en cada botton",
       "codigo": "function IngresarPrecio(valor) {\n\n            if (valor >= 0 && valor <= 9) {\n\n                currentValue += valor.toString();\n            } else if (valor === 100) {\n \n                currentValue += \".\";\n            } else if (valor === 200) {\n\n                currentValue = currentValue.slice(0, -1);\n            }\n\n            txtCant.SetText(currentValue);\n\n        }\n",
-      "estadistica": 16,
+      "estadistica": 19,
       "fecha": "2024-02-01",
       "id": 22,
       "Etiquetas": [
@@ -556,7 +556,7 @@
       "dependencias": "",
       "comentario": "se llama asi Numeric(s,e);",
       "codigo": " function Numeric(s, e) {\n            var theEvent = e.htmlEvent || window.event;\n            var key = theEvent.keyCode || theEvent.which;\n            key = String.fromCharCode(key);\n            var regex = /[0-9,.,-]/;\n\n            if (!regex.test(key)) {\n                theEvent.returnValue = false;\n                if (theEvent.preventDefault)\n                    theEvent.preventDefault();\n            }\n        }\n",
-      "estadistica": 222,
+      "estadistica": 226,
       "fecha": "2024-02-26",
       "id": 37,
       "Etiquetas": [

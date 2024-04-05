@@ -59,7 +59,7 @@ def crear_modelos_cercania():
         
         return True,"El proceso de creacion de vectores de cercania ha sido exitoso"
     except:
-        return False,"Error: El proceso de creacion de vectores de cercania ha fallado, verificar la columna Etiqueta"
+        return False,"Error: El proceso de creacion de vectores de cercania ha fallado"
 
 
 

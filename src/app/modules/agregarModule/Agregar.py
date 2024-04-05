@@ -1,9 +1,12 @@
 import tkinter as tk
 from tkinter import ttk
 import json
+from tkinter import *
 
-ColorBgConstant = "#242424"
-ColorLetterConstant = "#db7907"
+
+ColorBgConstant = "#21201c"
+ColorLetterConstant = "#da6b16"
+BorderColor = "#da6b16"
 font = "Fixedsys"
 
 class Agregar(tk.Frame):
@@ -11,10 +14,15 @@ class Agregar(tk.Frame):
     def __init__(self, root):
         super().__init__(root)
         self.configure(bg=ColorBgConstant)
+
+
+
+        border_color = Frame(self, background=BorderColor)
+        border_color.pack(side="left", fill="y")
         
          # Panel que muestra la información
-        self.panel_izquierdo = tk.Frame(self, width=1, bg=ColorBgConstant,bd=1, relief="solid")
-        self.panel_izquierdo.pack(side="left", fill="y")
+        self.panel_izquierdo = tk.Frame(border_color, width=1, bg=ColorBgConstant,bd=1, relief="solid")
+        self.panel_izquierdo.pack(side="left", fill="y",padx=2, pady=2)
         
 
 
@@ -45,7 +53,7 @@ class Agregar(tk.Frame):
         
 
         # Botón para registrar el código
-        self.registrar_boton = tk.Button(self, text="Registrar Código",background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), command=self.registrar_codigo)
+        self.registrar_boton = tk.Button(self, text="Registrar Código",background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10),activeforeground=ColorBgConstant, activebackground=ColorLetterConstant, command=self.registrar_codigo)
         self.registrar_boton.pack(pady=5)
 
         
@@ -54,6 +62,11 @@ class Agregar(tk.Frame):
         self.codigo_text = tk.Text(self, wrap="none",background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), height=20, width=45)
         self.codigo_text.insert("1.0", "")
         self.codigo_text.pack(padx=35, pady=20)
+
+
+        self.etiqueta_info = tk.Label(self,background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text="")
+        self.etiqueta_info.pack(padx=20, pady=10)
+
 
 
 
