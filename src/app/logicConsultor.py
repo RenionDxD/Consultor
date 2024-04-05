@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import ttk
 
 
-with open("Consultor/data/data.json", 'r') as file:
+with open("data/data.json", 'r') as file:
         datos = json.load(file)
         datos = datos["datos"]
 

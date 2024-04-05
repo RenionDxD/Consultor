@@ -7,8 +7,655 @@
       "accion": "copiar en portapapeles",
       "comentario": "pip install pyperclip",
       "codigo": "def copiar_al_portapapeles(self):\n        contenido = self.resultado_texto.get(\"1.0\", tk.END)\n        self.root.clipboard_clear()\n        self.root.clipboard_append(contenido)\n        self.root.update()\n",
-      "estadistica": 7,
-      "fecha": "2023-12-24"
+      "estadistica": 16,
+      "fecha": "2023-12-24",
+      "id": 1,
+      "Etiquetas": [
+        "copiar en portapapeles"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "SQL",
+      "accion": "llamar a otras bd con relacion",
+      "dependencias": "",
+      "comentario": "cambiar las variables del left join si se quiere referir a otra bd",
+      "codigo": "BEGIN\n\t\t\tSELECT C.Nombre, VP.Fecha, VP.TotalVenta from ventasPV VP\n\t\t\tleft join Clientes C on C.Id = Vp.idCliente\n\t\t\torder by VP.Fecha Desc\n\t\tEND\n",
+      "estadistica": 3,
+      "fecha": "2023-12-26",
+      "id": 2,
+      "Etiquetas": [
+        "llamar a bd relacion",
+        "left join"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "contenedor de tablas",
+      "dependencias": "",
+      "comentario": "#cambiar ID #cambiar gv",
+      "codigo": "<asp:Content ID=\"Content5\" ContentPlaceHolderID=\"Contenido\" runat=\"server\">\n\n    <dx:ASPxGridView ID=\"gvVentasclientes\" ClientInstanceName=\"gvVentasclientes\" runat=\"server\" AutoGenerateColumns=\"False\"  Width=\"100%\" Theme=\"Material\">        \n         <ClientSideEvents EndCallback=\"function(s,e){popAgregar.Hide(); ldnLoader.Hide();}\" />\n             <Settings ShowFilterRow=\"True\" ShowFilterRowMenu=\"True\" />\n            <SettingsBehavior AllowFocusedRow=\"True\" />\n            <SettingsDataSecurity AllowDelete=\"False\" AllowEdit=\"False\" AllowInsert=\"False\" />\n        <Columns>\n           <%-- <dx:GridViewDataTextColumn Caption=\"ID\" FieldName=\"id\" Visible=\"True\" Width=\"5%\">\n            </dx:GridViewDataTextColumn>--%>\n            <dx:GridViewDataTextColumn Caption=\"Nombre\" FieldName=\"Nombre\" VisibleIndex=\"1\" AdaptivePriority=\"1\">\n            </dx:GridViewDataTextColumn>\n            <dx:GridViewDataTextColumn Caption=\"Fecha\" FieldName=\"Fecha\" VisibleIndex=\"1\" AdaptivePriority=\"1\">\n            </dx:GridViewDataTextColumn>\n            <dx:GridViewDataTextColumn Caption=\"Total Ventas\" FieldName=\"TotalVenta\" VisibleIndex=\"1\" AdaptivePriority=\"1\">\n            </dx:GridViewDataTextColumn>\n            <dx:GridViewDataTextColumn Caption=\"Forma de pago\" FieldName=\"descripcion\" VisibleIndex=\"1\" AdaptivePriority=\"1\">\n            </dx:GridViewDataTextColumn>\n            <dx:GridViewDataTextColumn Caption=\"Forma de pago\" FieldName=\"FormaPago\" VisibleIndex=\"1\" AdaptivePriority=\"1\">\n            </dx:GridViewDataTextColumn>\n        </Columns>\n\n        <Styles>\n            <FocusedRow BackColor=\"#CCCCCC\" ForeColor=\"Black\">\n            </FocusedRow>\n        </Styles>\n        </dx:ASPxGridView>  \n</asp:Content>\n",
+      "estadistica": 4,
+      "fecha": "2023-12-26",
+      "id": 3,
+      "Etiquetas": [
+        "gv",
+        "grid"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "cargar GetAll",
+      "dependencias": "",
+      "comentario": "#cambiar nombre GetAll",
+      "codigo": "protected void CargarVentasClientes() \n        {\n            DataTable dtventasclientes = _ventasClientes.VentasClientesGetAll(1, 0);\n            gvVentasclientes.DataSource = dtventasclientes;\n            gvVentasclientes.DataBind();\n        }\n",
+      "estadistica": 5,
+      "fecha": "2023-12-26",
+      "id": 4,
+      "Etiquetas": [
+        "getall",
+        "cargar datos sql"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "JavaScript",
+      "accion": "que se activen o desactiven botones",
+      "dependencias": "",
+      "comentario": "#esto se pone en la tabla donde se va a elegir:    FocusedRowChanged=\"function(s, e) { onFolioChange(); }\"",
+      "codigo": " function onFolioChange() {\n        let index = gvVentasclientes.focusedRowIndex;\n        console.log(index);\n        if (index != null && index > -1) {\n            gvVentasclientes.GetRowValues(index, \"NoSerie\", function (values) {\n                console.log(values);\n                if (values && values.trim().length > 0) {\n                    btnDescargarXML.SetEnabled(true);\n                    btnDescargarPDF.SetEnabled(true);\n\n                    //btnFacturar.SetEnabled(false);\n                }\n                else {\n                    btnDescargarXML.SetEnabled(false);\n                    btnDescargarPDF.SetEnabled(false);\n\n                    //btnFacturar.SetEnabled(true);\n                }\n            });\n        }\n\n    }\n",
+      "estadistica": 6,
+      "fecha": "2023-12-27",
+      "id": 5,
+      "Etiquetas": [
+        "desactivar botones",
+        "activar botones",
+        "enable",
+        "disable"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "en el excel poner una fecha",
+      "dependencias": "",
+      "comentario": "meter esto en el using",
+      "codigo": " rng.Value = dtDatos.Rows[fila - 1][columna - 1];\n                        //cambiar numero de columna si es necesario segun donde sea lo que se va a cambiar:)\n                        if (dtDatos.Columns[columna - 1].DataType == typeof(DateTime))\n                        {\n                            rng.Style.Numberformat.Format = \"dd-mm-yyyy\";\n                            //rng.Value = DateTime.Parse(rng.Text);\n                        }\n",
+      "estadistica": 21,
+      "fecha": "2023-12-27",
+      "id": 6,
+      "Etiquetas": [
+        "fecha excel",
+        "datatime excel"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "limpiar fecha de campo",
+      "dependencias": "",
+      "comentario": "poner el id del campo",
+      "codigo": " dtVigenciaAutorizacion.Date = DateTime.MinValue;\n",
+      "estadistica": 5,
+      "fecha": "2024-01-03",
+      "id": 7,
+      "Etiquetas": [
+        "limpiar campo fecha",
+        "DateTime.MinValue"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "limpiar comboBox",
+      "dependencias": "",
+      "comentario": "poner id del campo",
+      "codigo": " cmbActiva.SelectedItem = null;\n",
+      "estadistica": 12,
+      "fecha": "2024-01-03",
+      "id": 8,
+      "Etiquetas": [
+        "limpiar combobox",
+        "limpiar cbo"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "Obtener valor del ComboBox",
+      "dependencias": "",
+      "comentario": "#",
+      "codigo": "            string activa = cmbActiva.SelectedItem != null ? cmbActiva.SelectedItem.Value.ToString() : string.Empty;\n\n",
+      "estadistica": 25,
+      "fecha": "2024-01-03",
+      "id": 9,
+      "Etiquetas": [
+        "Obtener valor combobox",
+        "value cbo"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "agregar fechas",
+      "dependencias": "",
+      "comentario": "CAMBIAR VARIABLES",
+      "codigo": "dtVigenciaAutorizacion.Date = (DateTime)dtventasclientes.Rows[0][\"VigenciaAutorizacion\"];\n",
+      "estadistica": 5,
+      "fecha": "2024-01-03",
+      "id": 10,
+      "Etiquetas": [
+        "Agregar fechas a un pop",
+        "insertar dato fecha pop",
+        "(DateTime)"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "SQL",
+      "accion": "cambiar un solo dato",
+      "dependencias": "",
+      "comentario": "agregar variables si es necesario",
+      "codigo": "IF @p_op = 3 \n\t\t\tBEGIN\n\t\t\t\tUPDATE Empresa\n\t\t\t\tSET \n\t\t\t\t\tActiva = @p_Activa\n\t\t\t\tWHERE idEmpresa = @p_idEmpresa;\n\t\t\t\tSET @p_out = @p_idEmpresa;\n\t\t\t\tRETURN;\n\t\t\tEND\n",
+      "estadistica": 2,
+      "fecha": "2024-01-03",
+      "id": 11,
+      "Etiquetas": [
+        "uso de set",
+        "usar set",
+        "cambiar un solo dato",
+        "actualizar un solo dato",
+        "actualizar dato"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C++",
+      "accion": "boleano en un excel",
+      "dependencias": "",
+      "comentario": "dentro del using",
+      "codigo": "if (dtDatos.Columns[columna - 1].DataType == typeof(bool))\n                        {\n                            bool valorBool = (bool)dtDatos.Rows[fila - 1][columna - 1];\n                            rng.Value = valorBool ? \"Activo\" : \"Inactivo\";\n                        }\n",
+      "estadistica": 2,
+      "fecha": "2024-01-03",
+      "id": 12,
+      "Etiquetas": [
+        "exportar boleano",
+        "boleano en excel",
+        "campo boleano excel"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "fecha en el grid gv",
+      "dependencias": "",
+      "comentario": "#",
+      "codigo": "<PropertiesTextEdit DisplayFormatString=\"dd/MM/yyyy\" />\n",
+      "estadistica": 5,
+      "fecha": "2024-01-04",
+      "id": 13,
+      "Etiquetas": [
+        "poner fecha en el grid",
+        "formato fecha grid",
+        "fecha Properties"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "nombres repetidos",
+      "dependencias": "",
+      "comentario": "cambiar variable de nombre",
+      "codigo": " var datosFiltrados = datos.AsEnumerable()\n                             .GroupBy(row => row.Field<string>(\"NombreComercial\")) //Con esto se fitra de todos los datos segun el nombre de el dato que tengamos\n                             .Select(group => group.First())\n                             .CopyToDataTable();\n",
+      "estadistica": 2,
+      "fecha": "2024-01-16",
+      "id": 14,
+      "Etiquetas": [
+        "eliminar nombres repetidos",
+        "datos repetidos eliminar",
+        "filtrar datos"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "insertar dato cbo",
+      "dependencias": "",
+      "comentario": "datos son el conjunto",
+      "codigo": " DataRow rowTodos = datos.NewRow();\n            rowTodos[\"ID\"] = 0; \n            rowTodos[\"Nombre\"] = \"Todos\";  \n            datos.Rows.InsertAt(rowTodos, 0);\n\n",
+      "estadistica": 4,
+      "fecha": "2024-01-16",
+      "id": 15,
+      "Etiquetas": [
+        "datos nuevo combobox",
+        "dato diferente cbo",
+        "agregar datos al combobox"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "combobox",
+      "dependencias": "",
+      "comentario": "",
+      "codigo": "<section class=\"col-xs-12\">\n                           <div class=\"form-group has-feedback\">\n                                <label class=\"subtitulos\" for=\"txtNombreE\">Componente:</label>\n                              <dx:ASPxComboBox ID=\"cboPuesto\" ClientInstanceName=\"cboPuesto\" ValueField=\"IdPuesto\" TextField=\"Firmas\" runat=\"server\" Width=\"100%\" Theme=\"SoftOrange\">                                 \n                            </dx:ASPxComboBox>\n                            </div>                            \n                        </section>\n",
+      "estadistica": 10,
+      "fecha": "2024-01-19",
+      "id": 16,
+      "Etiquetas": [
+        "combobox"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "filtro fechas",
+      "dependencias": "",
+      "comentario": "arriba del gv",
+      "codigo": "<div style=\"display: flex\">\n        <div style=\"margin-left: 35px;\">\n            <label for=\"dteFecha\">Fecha Inicial</label>\n            <dx:ASPxDateEdit ID=\"dateIn\" runat=\"server\" ClientInstanceName=\"dateIn\" Width=\"300px\" Theme=\"Moderno\">\n                <ClientSideEvents DateChanged=\"function(s, e) {realizarOperacion(); }\" />\n            </dx:ASPxDateEdit>\n\n        </div>\n\n        <div style=\"margin-left: 35px;\">\n            <label for=\"dteFecha\">Fecha Final</label>\n            <dx:ASPxDateEdit ID=\"dateFn\" runat=\"server\" ClientInstanceName=\"dateFn\" Width=\"300px\" Theme=\"Moderno\">\n                <ClientSideEvents DateChanged=\"function(s, e) {realizarOperacion();}\" />\n            </dx:ASPxDateEdit>\n        </div>\n    </div>\n\n    <br />\n",
+      "estadistica": 38,
+      "fecha": "2024-01-24",
+      "id": 17,
+      "Etiquetas": [
+        "filtro de fecha en grid",
+        "filtrar dato por fechas"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "SQL",
+      "accion": "filtro fecha",
+      "dependencias": "",
+      "comentario": "poner variables DATETIME",
+      "codigo": "SELECT B.* FROM Bitacoras B\n\t\t\t\n\t\t\twhere fecha >= @p_fechaIn and  fecha <=@p_fechaFn\n",
+      "estadistica": 0,
+      "fecha": "2024-01-24",
+      "id": 18,
+      "Etiquetas": [
+        "filtrar fechas sql"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "SQL",
+      "accion": "Segimiento Tabla",
+      "dependencias": "",
+      "comentario": "sin comentari",
+      "codigo": "SELECT B.* FROM Bitacoras B\n\t\t\tLEFT JOIN usuarios R ON R.id = B.IdUsuario\n",
+      "estadistica": 3,
+      "fecha": "2024-01-24",
+      "id": 19,
+      "Etiquetas": [
+        "left join"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "JavaScript",
+      "accion": "validar campos fecha",
+      "dependencias": "",
+      "comentario": "",
+      "codigo": "function realizarOperacion() {\n             var dateInValue = dateIn.GetDate();\n             var dateFnValue = dateFn.GetDate();\n\n             if (dateInValue && dateFnValue) {\n                 gvCorteDiario.PerformCallback(0);\n             } else {\n                 console.log(\"Alguno de los datos est\u00e1 vac\u00edo.\");\n             }\n         }\n",
+      "estadistica": 19,
+      "fecha": "2024-01-24",
+      "id": 20,
+      "Etiquetas": [
+        "validar campo fecha en javascript",
+        "validar campo fecha en js",
+        "campo fecha validate"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "filtro fecha",
+      "dependencias": "",
+      "comentario": "se carga en el callback",
+      "codigo": " protected void CargarBitacoras()\n        {\n            DateTime fin = dateFn.Date;\n            if (dateIn.Date == dateFn.Date)\n            {\n                fin = dateFn.Date.AddHours(23).AddMinutes(59).AddSeconds(59);\n\n            }\n            else\n            {\n                if (dateFn.Date.Year == 1)\n                {\n                    fin = dateIn.Date.AddHours(23).AddMinutes(59).AddSeconds(59);\n                }\n            }\n\n\n            ///falta poner los campos de selecciion a comparar\n            DataTable dtEmpresas = _Bitacora.BitacorasGetAll(1, 0, dateIn.Date, fin);\n            gvBitacora.DataSource = dtEmpresas;\n            gvBitacora.DataBind();\n\n        }\n",
+      "estadistica": 4,
+      "fecha": "2024-01-24",
+      "id": 21,
+      "Etiquetas": [
+        "filtrar fechas en callback",
+        "filtrar fechas en c#"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "JavaScript",
+      "accion": "funcion teclado virtual",
+      "dependencias": "",
+      "comentario": "poner en cada botton",
+      "codigo": "function IngresarPrecio(valor) {\n\n            if (valor >= 0 && valor <= 9) {\n\n                currentValue += valor.toString();\n            } else if (valor === 100) {\n \n                currentValue += \".\";\n            } else if (valor === 200) {\n\n                currentValue = currentValue.slice(0, -1);\n            }\n\n            txtCant.SetText(currentValue);\n\n        }\n",
+      "estadistica": 16,
+      "fecha": "2024-02-01",
+      "id": 22,
+      "Etiquetas": [
+        "teclado virtual js",
+        "funcion de teclado"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "calculadora modelo",
+      "dependencias": "",
+      "comentario": "agregar css",
+      "codigo": "<section class=\"section-buttons pop-buttons col-md-12 col-xs-12\" >\n                                <dx:ASPxButton ID=\"ASPxButton15\" runat=\"server\" Text=\"7\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(7);}\" />\n                                </dx:ASPxButton>\n                                <dx:ASPxButton ID=\"ASPxButton16\" runat=\"server\" Text=\"8\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(8);}\" />\n                                </dx:ASPxButton>\n                                <dx:ASPxButton ID=\"ASPxButton18\" runat=\"server\" Text=\"9\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(9);}\" />\n                                </dx:ASPxButton>\n                                <div class=\"clearfix\"></div>\n                                <dx:ASPxButton ID=\"ASPxButton19\" runat=\"server\" Text=\"4\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(4);}\" />\n                                </dx:ASPxButton>\n                                <dx:ASPxButton ID=\"ASPxButton20\" runat=\"server\" Text=\"5\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(5);}\" />\n                                </dx:ASPxButton>\n                                <dx:ASPxButton ID=\"ASPxButton21\" runat=\"server\" Text=\"6\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(6);}\" />\n                                </dx:ASPxButton>\n                                <div class=\"clearfix\"></div>\n                                <dx:ASPxButton ID=\"ASPxButton22\" runat=\"server\" Text=\"1\" AutoPostBack=\"false\"  Theme=\"Material\" CssClass=\"button-with-margin grid-item\" >\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(1); }\" />\n                                </dx:ASPxButton>\n                                <dx:ASPxButton ID=\"ASPxButton23\" runat=\"server\" Text=\"2\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(2);}\" />\n                                </dx:ASPxButton>\n                                <dx:ASPxButton ID=\"ASPxButton24\" runat=\"server\" Text=\"3\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(3);}\" />\n                                </dx:ASPxButton>\n                                 <div class=\"clearfix\"></div>\n                                <dx:ASPxButton ID=\"ASPxButton25\" runat=\"server\" Text=\".\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(100);}\" />\n                                </dx:ASPxButton>\n\n                                <dx:ASPxButton ID=\"ASPxButton26\" runat=\"server\" Text=\"0\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(0);}\" />\n                                </dx:ASPxButton>\n                        \n                                <dx:ASPxButton ID=\"ASPxButton27\" runat=\"server\" Text=\"Borrar\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(200);}\" />\n                                </dx:ASPxButton>\n                            </section>\n",
+      "estadistica": 31,
+      "fecha": "2024-02-01",
+      "id": 23,
+      "Etiquetas": [
+        "dise\u00c3\u00b1o cacluladora aspx",
+        "caluladora virtual aspx"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "CSS",
+      "accion": "calculadora modelo",
+      "dependencias": "",
+      "comentario": "sin comentarios",
+      "codigo": ".button-with-margin {\n            margin-right: 4px; \n            margin-bottom: 10px;\n            background-color:#542628 !important;\n            font-size:40px !important;\n        }\n        .grid-item {\n            width: 33.33%; /* 1/3 de ancho para cada columna */\n            float: left;\n        }\n\n        .clearfix {\n            clear: both;\n        }\n",
+      "estadistica": 22,
+      "fecha": "2024-02-01",
+      "id": 24,
+      "Etiquetas": [
+        "calculadora css",
+        "dise\u00c3\u00b1o y acomodo de la calculadora modelo virtual"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "cbo en Excel",
+      "dependencias": "",
+      "comentario": "#Var arriba de AutoFitColumns",
+      "codigo": " var estados = worksheet.Cells[2, 3, ExcelPackage.MaxRows, 3].DataValidation.AddListDataValidation() as ExcelDataValidationList;\n                estados.AllowBlank = true;\n\n\n//Inicio Pagina Rutas\n                pck.Workbook.Worksheets.Add(\"Estados\");\n                ExcelWorksheet worksheet1 = pck.Workbook.Worksheets[2];\n                pck.Workbook.Properties.Title = \"Estados\";\n\n\n\n                worksheet1.Name = string.Format(\"Estados\");\n\n\n\n                worksheet1.Cells[1, 1].Value = \"Clave\";\n                worksheet1.Cells[1, 2].Value = \"Nombre Estado\";\n\n\n                DataTable dtRutas = (DataTable)cboEstado.DataSource;\n\n\n\n\n\n\n                for (int i = 2; i < dtRutas.Rows.Count + 2; i++)\n                {\n                    int indice = i;\n                    DataRow dr = dtRutas.Rows[indice - 2];\n\n\n\n                    worksheet1.Cells[indice, 1].Value = dr[\"IdEstado\"].ToInt();\n                    worksheet1.Cells[indice, 2].Value = dr[\"Nombre\"].ToString();\n                    estados.Formula.Values.Add(dr[\"Nombre\"].ToString());\n                }\n\n                worksheet1.Cells.AutoFitColumns(12);\n                worksheet1.Column(1).Width = 10;\n                worksheet1.Column(2).Width = 20;\n\n                worksheet1.DefaultColWidth = 15;\n                worksheet1.Cells[\"A1:B1\"].Style.Font.Bold = true;\n                worksheet1.Cells[\"A1:B1\"].Style.Font.Color.SetColor(Color.White);\n                worksheet1.Cells[\"A1:B1\"].Style.Fill.PatternType = ExcelFillStyle.Solid;\n                worksheet1.Cells[\"A1:B1\"].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(241, 178, 23));\n                //Fin pagina rutas\n",
+      "estadistica": 0,
+      "fecha": "2024-02-08",
+      "id": 25,
+      "Etiquetas": [
+        "poner el campo cbo en excel",
+        "campo cbo o combobox"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "obtener id de combobox",
+      "dependencias": "",
+      "comentario": "#sin comentario",
+      "codigo": "int Ruta = Convert.ToInt32(cboRutas.Value);\n",
+      "estadistica": 3,
+      "fecha": "2024-02-08",
+      "id": 26,
+      "Etiquetas": [
+        "obtener id de combobox",
+        "obtener el id de cbo en c#"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "Guardar ComboBox Excel",
+      "dependencias": "",
+      "comentario": "#Va dentro del foreach, bajo variables",
+      "codigo": "DataTable dtEstados = _Municipios.EstadosGetAll(1, 0);\n                for (int i = 2; i < dtEstados.Rows.Count + 2; i++)\n                {\n                    int indice = i;\n                    DataRow dr2 = dtEstados.Rows[indice - 2];\n\n                    if (dr2[\"Nombre\"].ToString().Equals(dr[2].ToString()))\n                    {\n                        Estado = dr2[\"IdEstado\"].ToInt();\n                        break;\n                    }\n                    else\n                    {\n                        Estado = 0;\n                    }\n                }\n",
+      "estadistica": 3,
+      "fecha": "2024-02-08",
+      "id": 27,
+      "Etiquetas": [
+        "guardar combobox de excel a sql",
+        "guardar cbo sql",
+        "obtener valor id cbo sql"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "comboBox si y no",
+      "dependencias": "",
+      "comentario": "#sin comentario",
+      "codigo": "<div  class=\"col-md-6 col-xs-6\">\n                            <div class=\"form-group\">\n                                <label for=\"txtNombreE\">Coordinador de proyecto:</label>\n                                <dx:ASPxComboBox ID=\"cboCoordinaProyec\" ClientInstanceName=\"cboCoordinaProyec\"  runat=\"server\" Width=\"100%\" Theme=\"Material\">\n                                    <Items>\n                                        <dx:ListEditItem Text=\"Si\" Value=\"1\" />\n                                        <dx:ListEditItem Text=\"No\" Value=\"0\" />        \n                                    </Items>\n\n                                    <ValidationSettings ValidationGroup=\"formulario\" ErrorDisplayMode=\"ImageWithTooltip\">\n                                        <RequiredField IsRequired=\"True\" ErrorText=\"El campo es requerido\" />\n                                    </ValidationSettings>\n                                </dx:ASPxComboBox>     \n                            </div>\n                        </div>\n",
+      "estadistica": 3,
+      "fecha": "2024-02-08",
+      "id": 28,
+      "Etiquetas": [
+        "combobox si y no"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "SQL",
+      "accion": "comvertir \"0 1\" a \"si y no\"",
+      "dependencias": "",
+      "comentario": "#Se pone antes del from ",
+      "codigo": "CASE \n\t\t\tWHEN p.MostrarAplicacion = 1 THEN 'Si'\n\t\t\tELSE 'No'\n\t\t\tEND AS MostrarAplicacionText\n",
+      "estadistica": 10,
+      "fecha": "2024-02-08",
+      "id": 29,
+      "Etiquetas": [
+        "convertir 0 1 a si y no sql"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "poner combobox en plantilla",
+      "dependencias": "",
+      "comentario": "#referirse al campo",
+      "codigo": "var CoordinaProyec = worksheet.Cells[2, 14, ExcelPackage.MaxRows, 14].DataValidation.AddListDataValidation() as ExcelDataValidationList;\n                CoordinaProyec.AllowBlank = true;\n                CoordinaProyec.Formula.Values.Add(\"S\u00ed\");\n                CoordinaProyec.Formula.Values.Add(\"No\");\n",
+      "estadistica": 0,
+      "fecha": "2024-02-08",
+      "id": 30,
+      "Etiquetas": [
+        "poner combobox en plantilla"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "poner fecha inicial",
+      "dependencias": "",
+      "comentario": "Dentro page_Load",
+      "codigo": "if (!IsCallback && !IsPostBack)\n            {\n                dteFechaV.Date = DateTime.Now;\n            }\n",
+      "estadistica": 3,
+      "fecha": "2024-02-12",
+      "id": 31,
+      "Etiquetas": [
+        "fecha inicial",
+        "fecha de hoy en espacio"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "Poner tabla en pop",
+      "dependencias": "",
+      "comentario": "#sin comentarios",
+      "codigo": " <dx:ASPxPopupControl ID=\"popAgregar\" runat=\"server\" ClientInstanceName=\"popAgregar\" CloseAction=\"CloseButton\" HeaderText=\"Asignaci\u00f3n\" ShowCloseButton=\"false\"\n        Modal=\"True\" PopupHorizontalAlign=\"WindowCenter\" PopupVerticalAlign=\"WindowCenter\" AllowDragging=\"True\" AutoUpdatePosition=\"True\" Theme=\"Material\"\n        OnWindowCallback=\"popAgregar_WindowCallback\"> \n        \n        <SettingsAdaptivity Mode=\"Always\" VerticalAlign=\"WindowCenter\" MaxWidth=\"1000px\" />\n\n        <ContentCollection>\n            <dx:PopupControlContentControl>\n                <section class=\"row\" id=\"contenedor\">\n                    <section class=\"col-md-12 col-xs-12\">\n                        <div class=\"form-group has-feedback\">\n\n                            <dx:ASPxPageControl ID=\"pgAccionesCli\" ClientInstanceName=\"pgAccionesCli\" runat=\"server\" ActiveTabIndex=\"0\" Theme=\"Material\">\n                                <ClientSideEvents  ActiveTabChanging=\"function(s, e) {\n                                    if(open) {\n                                        var next = validarSeccion(pgAccionesCli.GetActiveTab().Tab1);\n                                        if(!next) {\n                                            e.cancel = true;\n                                            }\n                                        }\n                                    }\"                             \n                                />\n\n\n                                \n\n                                <TabPages>\n                                    <dx:TabPage Text=\"Sucursales\"  runat=\"server\" Name=\"Tab1\">\n                                        <ContentCollection>\n                                            <dx:ContentControl runat=\"server\" SupportsDisabledAttribute=\"True\">\n\n\n                                                <section  style=\"display:flex;\">\n                                                    <div class=\"flxM\">\n                                                        <div style=\"width: 50%;\">\n                                                            <dx:ASPxLabel ID=\"_lblCant\" ClientInstanceName=\"_lblCant\"  Theme=\"Material\"  Text=\"Cantidad Asignada:\"  runat=\"server\"></dx:ASPxLabel>\n                                                        </div>\n                                                        <div style=\"text-align: right; width: 30%;\">\n                                                            <dx:ASPxLabel ID=\"lblCant\" ClientInstanceName=\"lblCant\" Style=\"font-size: 30px; color: #505050\" runat=\"server\"></dx:ASPxLabel>\n                                                        </div>\n                                                    </div>\n\n                                                    <div class=\"flxM\">\n                                                        <div style=\"width: 50%;\">\n                                                            <dx:ASPxLabel ID=\"_lblCantX\" ClientInstanceName=\"_lblCantX\"  Theme=\"Material\"  Text=\"Cantidad Por Asignar:\" runat=\"server\"></dx:ASPxLabel>\n                                                        </div>\n                                                        <div style=\"text-align: right; width: 30%;\">\n                                                            <dx:ASPxLabel ID=\"lblCantX\" ClientInstanceName=\"lblCantX\" Style=\"font-size: 30px; color: #505050\" runat=\"server\"></dx:ASPxLabel>\n                                                        </div>\n                                                    </div>\n                                                </section>\n\n                                                <div class=\"row\">\n                                                    <div class=\"col-md-12\">\n\n                                                        \n\n                                                        <br />\n\n                                                        <dx:ASPxGridView ID=\"gvSucursales\" ClientInstanceName=\"gvSucursales\" runat=\"server\" AutoGenerateColumns=\"False\"  Width=\"100%\" Theme=\"Material\">  <%--OnCustomCallback=\"gvGastosAutorizados_CustomCallback\"--%>\n                                                            <ClientSideEvents EndCallback=\"function(s,e){ ldnLoader.Hide();}\"/>\n                                                                <Settings ShowFilterRow=\"True\" ShowFilterRowMenu=\"True\" />\n                                                            <SettingsBehavior AllowFocusedRow=\"True\" />\n                                                            <SettingsDataSecurity AllowDelete=\"False\" AllowEdit=\"False\" AllowInsert=\"False\" />\n                                                                <Columns>\n                                                                    <%-- <dx:GridViewDataTextColumn Caption=\"ID\" FieldName=\"id\" Visible=\"True\" Width=\"5%\">\n                                                                    </dx:GridViewDataTextColumn>--%>\n                                                                    <dx:GridViewDataTextColumn Caption=\"IdSucursal\" FieldName=\"IdSucursal\" VisibleIndex=\"1\" AdaptivePriority=\"1\" Visible=\"false\" >\n                                                                    </dx:GridViewDataTextColumn>\n\n                                                                    <dx:GridViewDataTextColumn Caption=\"Sucursales\" FieldName=\"NombreSucursal\" VisibleIndex=\"1\" AdaptivePriority=\"1\" >\n                                                                    </dx:GridViewDataTextColumn>\n\n                                                                    <dx:GridViewDataTextColumn Caption=\"Cantidad\" FieldName=\"cantidad\" VisibleIndex=\"1\" AdaptivePriority=\"1\"  >\n                                                                    </dx:GridViewDataTextColumn>\n                                                               \n                                                                </Columns>\n                                                                <Styles>\n                                                                    <FocusedRow BackColor=\"#CCCCCC\" ForeColor=\"Black\">\n                                                                    </FocusedRow>\n                                                                </Styles>\n                                                        </dx:ASPxGridView>\n                                                        &nbsp;&nbsp;\n                                                        <section class=\"section-buttons\">\n\n                                                            <dx:ASPxButton ID=\"btnAgregarGastosAutorizados\" ClientInstanceName=\"btnAgregarGastosAutorizados\" runat=\"server\" Text=\"Agregar\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"animated-button\">\n                                                                <ClientSideEvents Click=\"function(s,e) {\n                                                                    accionGA=1;\n                                                                    popAgregarGastosAutorizados.PerformCallback(accionGA);    \n                                                                    popAgregarGastosAutorizados.Show(); \n                                                                    } \" />\n                                                            </dx:ASPxButton>\n\n                                                        </section>\n\n                                                        \n\n                                                    </div>\n                                                </div>\n\n                                            </dx:ContentControl>\n                                        </ContentCollection>\n                                    </dx:TabPage>\n\n\n                                </TabPages>\n\n                            </dx:ASPxPageControl>\n\n                        </div>\n                    </section>\n\n\n                    <section class=\"section-buttons pop-buttons col-md-12 col-xs-12\">\n                        <dx:ASPxButton ID=\"btnAceptar\" runat=\"server\" Text=\"Aceptar\" AutoPostBack=\"false\" Theme=\"Material\">\n                            <ClientSideEvents Click=\"function(s, e) {\n                                validar();\n                            }\" />\n                        </dx:ASPxButton>\n\n                        <dx:ASPxButton ID=\"btnCerrar\" runat=\"server\" Text=\"Cerrar\" AutoPostBack=\"false\" Theme=\"Material\">\n                            <ClientSideEvents Click=\"function(s, e) { popAgregar.Hide() }\" />\n                        </dx:ASPxButton>\n                    </section>\n                </section>\n            </dx:PopupControlContentControl>\n        </ContentCollection>\n    </dx:ASPxPopupControl>\n",
+      "estadistica": 1,
+      "fecha": "2024-02-14",
+      "id": 32,
+      "Etiquetas": [
+        "poner grid en pop",
+        "tablas en pop",
+        "pop con tabla"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "bloquear dias futuros",
+      "dependencias": "",
+      "comentario": "en aspx el label",
+      "codigo": "dteFecNacDP.MaxDate = DateTime.Today;\n",
+      "estadistica": 10,
+      "fecha": "2024-02-22",
+      "id": 33,
+      "Etiquetas": [
+        "bloquear dias futuros",
+        "no mostrar dias futuros"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "bloquear dias pasados",
+      "dependencias": "",
+      "comentario": "poner dentro !IsPostBack",
+      "codigo": "dteFecNacDP.MinDate = fechaHoy.AddYears(-100);\n",
+      "estadistica": 2,
+      "fecha": "2024-02-26",
+      "id": 34,
+      "Etiquetas": [
+        "bloquear dias pasados",
+        "no mostrar dias pasados"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "validacion archivos",
+      "dependencias": "",
+      "comentario": "poner arriba del ClientSideEvents",
+      "codigo": "<ValidationSettings AllowedFileExtensions=\".jpg,.jpeg,.jpe,.png,.xlsx,.pdf,.docx\" MaxFileSize=\"10000000\">\n                                        </ValidationSettings>\n",
+      "estadistica": 2,
+      "fecha": "2024-02-26",
+      "id": 35,
+      "Etiquetas": [
+        "validar archivos",
+        "validar al subir archivos",
+        "validacion .jpg,.jpeg,.jpe,.png,.xlsx,.pdf,.docx",
+        "validar tama\u00c3\u00b1o de archivo 10000000"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "Caracteres permitidos",
+      "dependencias": "",
+      "comentario": "dentr del ValidationSettings",
+      "codigo": "<RegularExpression ErrorText=\"El valor excede el n\u00famero de carcteres permitidos\" ValidationExpression=\"^.{1,18}$\" />\n",
+      "estadistica": 0,
+      "fecha": "2024-02-26",
+      "id": 36,
+      "Etiquetas": [
+        "caracteres permitidos",
+        "ValidationExpression",
+        "solo permite"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "Validacion solo numeros",
+      "dependencias": "",
+      "comentario": "se llama asi Numeric(s,e);",
+      "codigo": " function Numeric(s, e) {\n            var theEvent = e.htmlEvent || window.event;\n            var key = theEvent.keyCode || theEvent.which;\n            key = String.fromCharCode(key);\n            var regex = /[0-9,.,-]/;\n\n            if (!regex.test(key)) {\n                theEvent.returnValue = false;\n                if (theEvent.preventDefault)\n                    theEvent.preventDefault();\n            }\n        }\n",
+      "estadistica": 222,
+      "fecha": "2024-02-26",
+      "id": 37,
+      "Etiquetas": [
+        "function Numeric",
+        "(s, e)",
+        "Funcion solo numeros",
+        "validar solo numeros en text o txt"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "ASPxSpinEdit",
+      "dependencias": "",
+      "comentario": "Dx",
+      "codigo": " <dx:ASPxSpinEdit CssClass=\"form-control\" ID=\"spnIdioHabla\" runat=\"server\" Number=\"0\" MinValue=\"0\" MaxValue=\"100\" />\n\n",
+      "estadistica": 2,
+      "fecha": "2024-02-27",
+      "id": 38,
+      "Etiquetas": [
+        "ASPxSpinEdit",
+        "maximo o minimo valor",
+        "control de valores text"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "validacion numero telefono",
+      "dependencias": "",
+      "comentario": "abajo del aspxTextBox",
+      "codigo": "<MaskSettings Mask=\"(999) 000-0000\" />\n",
+      "estadistica": 0,
+      "fecha": "2024-02-27",
+      "id": 39,
+      "Etiquetas": [
+        "validar numero de telefono",
+        "mascara telefono o telefonica"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "obtener fecha",
+      "dependencias": "",
+      "comentario": "sin comentario",
+      "codigo": "DateTime FechaV = Convert.ToDateTime(dteFechaV.Text);\n",
+      "estadistica": 0,
+      "fecha": "2024-03-26",
+      "id": 40,
+      "Etiquetas": [
+        "obtner fecha",
+        "datos fecha toDate"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "CheckBox para pops",
+      "dependencias": "",
+      "comentario": "#sin comentarios",
+      "codigo": "<div style=\"display:flex;padding-bottom:10px\">\n                        <label for=\"Valor\" style=\"width:40px;padding-left:60px;\">Activo:</label>\n                          <asp:CheckBox ID=\"cbxSindicalizado\" runat=\"server\" AutoPostBack=\"false\" CheckState=\"Unchecked\" Text=\"<%$ Resources:Lenguajes, nwECcheckSindical %>\"\n                          TabIndex=\"30\" />\n                    </div> \n",
+      "estadistica": 0,
+      "fecha": "2024-04-02",
+      "id": 41,
+      "Etiquetas": [
+        "CheckBox para pops"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "llenar CheckBox",
+      "dependencias": "",
+      "comentario": "",
+      "codigo": "int noSubsidio = dt.Rows[0][\"NoSubsidio\"].ToInt();\n                    if (noSubsidio == 0) { ckNoSubisdio.Checked = false; } else { ckNoSubisdio.Checked = true; }\n",
+      "estadistica": 1,
+      "fecha": "2024-04-02",
+      "id": 42,
+      "Etiquetas": [
+        "chaechbox llenar",
+        "datos checkbox"
+      ]
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "CheckColumn en grid",
+      "dependencias": "",
+      "comentario": "#sin comentario",
+      "codigo": "<dx:GridViewDataCheckColumn Caption=\"Activo\" FieldName=\"Activo\" Width=\"150px\" ShowInCustomizationForm=\"True\"\n                                            VisibleIndex=\"1\" Visible=\"true\">\n                                            <CellStyle HorizontalAlign=\"Center\">\n                                            </CellStyle>\n                                        </dx:GridViewDataCheckColumn>\n",
+      "estadistica": 32,
+      "fecha": "2024-04-03",
+      "Etiquetas": [
+        "aplicar CheckColumn en el grid",
+        "columna check",
+        "check en tabla"
+      ],
+      "id": 43
     }
   ]
 }

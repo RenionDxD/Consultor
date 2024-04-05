@@ -1,0 +1,111 @@
+ID,Etiqueta
+1,copiar en portapapeles
+2,llamar a bd relacion
+2,left join
+3,gv
+3,grid
+4,getall
+4,cargar datos sql
+5,desactivar botones
+5,activar botones
+5,enable
+5,disable
+6,fecha excel
+6,datatime excel
+7,limpiar campo fecha
+7,DateTime.MinValue
+8,limpiar combobox
+8,limpiar cbo
+9,Obtener valor combobox
+9,value cbo
+10,Agregar fechas a un pop
+10,insertar dato fecha pop
+10,(DateTime)
+11,uso de set
+11,usar set
+11,cambiar un solo dato
+11,actualizar un solo dato
+11,actualizar dato
+12,exportar boleano
+12,boleano en excel
+12,campo boleano excel
+13,poner fecha en el grid
+13,formato fecha grid
+13,fecha Properties
+14,eliminar nombres repetidos
+14,datos repetidos eliminar
+14,filtrar datos
+15,datos nuevo combobox
+15,dato diferente cbo
+15,agregar datos al combobox
+16,combobox
+17,filtro de fecha en grid
+17,filtrar dato por fechas
+18,filtrar fechas sql
+19,left join
+20,validar campo fecha en javascript
+20,validar campo fecha en js
+20,campo fecha validate
+21,filtrar fechas en callback
+21,filtrar fechas en c#
+22,teclado virtual js
+22,funcion de teclado
+23,diseño cacluladora aspx
+23,caluladora virtual aspx
+24,calculadora css
+24,diseño y acomodo de la calculadora modelo virtual
+25,poner el campo cbo en excel
+25,campo cbo o combobox
+26,obtener id de combobox
+26,obtener el id de cbo en c#
+27,guardar combobox de excel a sql
+27,guardar cbo sql
+27,obtener valor id cbo sql
+28,combobox si y no
+29,convertir 0 1 a si y no sql
+30,poner combobox en plantilla
+31,fecha inicial
+31,fecha de hoy en espacio
+32,poner grid en pop
+32,tablas en pop
+32,pop con tabla
+33,bloquear dias futuros
+33,no mostrar dias futuros
+34,bloquear dias pasados
+34,no mostrar dias pasados
+35,validar archivos
+35,validar al subir archivos
+35,"validacion .jpg,.jpeg,.jpe,.png,.xlsx,.pdf,.docx"
+35,validar tamaño de archivo 10000000
+36,caracteres permitidos
+36,ValidationExpression
+36,solo permite
+37,function Numeric
+37,"(s, e)"
+37,Funcion solo numeros
+37,validar solo numeros en text o txt
+38,ASPxSpinEdit
+38,maximo o minimo valor
+38,control de valores text
+39,validar numero de telefono
+39,mascara telefono o telefonica
+40,obtner fecha
+40,datos fecha toDate
+41,CheckBox para pops
+42,chaechbox llenar
+42,datos checkbox
+43,aplicar CheckColumn en el grid
+43,columna check
+43,check en tabla
+44,sdfdsf
+44,szdfsdf
+44,sdfdfgh
+44,dghgghfg
+44,dfgdfgd
+44,dfgdfg
+44,fghgf
+44,fghfgh
+44,kjyuk
+44,uiouio
+44,56657
+44,65435
