@@ -10,14 +10,14 @@ BorderColor = "#da6b16"
 font = "Fixedsys"
 
 class Main(tk.Frame):
-    from modules.mainModule.logicMain import obtener_valores_unicos, obtener_selecciones, copiar_al_portapapeles, Actualizar_dato, obtener_seleccionesIA
+    from modules.mainModule.logicMain import obtener_valores_unicos, obtener_selecciones, copiar_al_portapapeles, Actualizar_dato, obtener_seleccionesIA, cambio_de_imagen
     def __init__(self, root):
         super().__init__(root)
         self.root = root
         # Establecer un fondo gris oscuro
         self.configure(bg=ColorBgConstant)
         
-
+        self.cambio_de_imagen()
 
         with open("data/data.json", 'r') as file:
                 datos = json.load(file)
@@ -44,22 +44,26 @@ class Main(tk.Frame):
         frame_IA.grid(row=0, column=0, padx=5, pady=10, sticky="w")
 
 
+    
+        self.icono_chico = tk.PhotoImage(file="data/Cara_1.png")
+        self.icono_chico = self.icono_chico.subsample(15)
+        
 
         # Etiquetas
         tk.Label(frame_accion,background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text="Acción:").pack(side="top", pady=10)
         tk.Label(frame_lenguaje,background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text="Lenguaje:").pack(side="top",pady=10)
-        tk.Label(frame_IA,background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text="iA:").pack(side="top",pady=10)
+        tk.Label(frame_IA,background=BorderColor, fg=ColorLetterConstant, font=(font, 10), image=self.icono_chico ,text="IA:").pack(side="top",pady=10)
 
 
 
         # Combo boxes
         self.combo_accion = ttk.Combobox(frame_accion, width=25, foreground=ColorLetterConstant, background=ColorBgConstant, font=("Fixedsys", 10) , values=self.obtener_valores_unicos(datos, "accion"))
-        self.combo_accion.set("Seleccionar Acción")
+        self.combo_accion.set(">> Seleccionar Acción")
         self.combo_accion.pack(side="left")
         self.combo_accion.bind("<<ComboboxSelected>>", self.obtener_selecciones)
 
         self.combo_lenguaje = ttk.Combobox(frame_lenguaje, width=25, foreground=ColorLetterConstant, background=ColorBgConstant, font=("Fixedsys", 10) , values=self.obtener_valores_unicos(datos, "lenguaje"))
-        self.combo_lenguaje.set("Seleccionar Lenguaje")
+        self.combo_lenguaje.set(">> Seleccionar Lenguaje")
         self.combo_lenguaje.pack(side="left")
         self.combo_lenguaje.bind("<<ComboboxSelected>>", self.obtener_selecciones)
 
@@ -78,15 +82,15 @@ class Main(tk.Frame):
         
 
         # Etiqueta Accion
-        self.etiqueta_accion = tk.Label(self.labels_frame,background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text="Accion:")
+        self.etiqueta_accion = tk.Label(self.labels_frame,background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text=">> Accion:")
         self.etiqueta_accion.grid(row=0, column=0, padx=20, pady=10)
 
         # Etiqueta Comentario
-        self.etiqueta_comentario = tk.Label(self.labels_frame, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text="Comentario:")
+        self.etiqueta_comentario = tk.Label(self.labels_frame, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text=">> Comentario:")
         self.etiqueta_comentario.grid(row=0, column=1, padx=20, pady=10)
 
         # Etiqueta Fecha
-        self.etiqueta_fecha = tk.Label(self.labels_frame, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text="Fecha:")
+        self.etiqueta_fecha = tk.Label(self.labels_frame, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text=">> Fecha:")
         self.etiqueta_fecha.grid(row=1, column=0, padx=20, pady=1)
 
         # Etiqueta Veces usado
@@ -103,7 +107,7 @@ class Main(tk.Frame):
         
 
         # Botón para copiar al portapapeles
-        self.btn_expandirNota2 = tk.Button(self, text="Copiar al Portapapeles",background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10),activeforeground=ColorBgConstant, activebackground=ColorLetterConstant, command=self.copiar_al_portapapeles)
+        self.btn_expandirNota2 = tk.Button(self, text=">> Copiar al Portapapeles <<",background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10),activeforeground=ColorBgConstant, activebackground=ColorLetterConstant, command=self.copiar_al_portapapeles)
         self.btn_expandirNota2.pack(pady=10)
 
 

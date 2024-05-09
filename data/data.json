@@ -7,7 +7,7 @@
       "accion": "copiar en portapapeles",
       "comentario": "pip install pyperclip",
       "codigo": "def copiar_al_portapapeles(self):\n        contenido = self.resultado_texto.get(\"1.0\", tk.END)\n        self.root.clipboard_clear()\n        self.root.clipboard_append(contenido)\n        self.root.update()\n",
-      "estadistica": 16,
+      "estadistica": 21,
       "fecha": "2023-12-24",
       "id": 1,
       "Etiquetas": [
@@ -21,7 +21,7 @@
       "dependencias": "",
       "comentario": "cambiar las variables del left join si se quiere referir a otra bd",
       "codigo": "BEGIN\n\t\t\tSELECT C.Nombre, VP.Fecha, VP.TotalVenta from ventasPV VP\n\t\t\tleft join Clientes C on C.Id = Vp.idCliente\n\t\t\torder by VP.Fecha Desc\n\t\tEND\n",
-      "estadistica": 3,
+      "estadistica": 10,
       "fecha": "2023-12-26",
       "id": 2,
       "Etiquetas": [
@@ -36,7 +36,7 @@
       "dependencias": "",
       "comentario": "#cambiar ID #cambiar gv",
       "codigo": "<asp:Content ID=\"Content5\" ContentPlaceHolderID=\"Contenido\" runat=\"server\">\n\n    <dx:ASPxGridView ID=\"gvVentasclientes\" ClientInstanceName=\"gvVentasclientes\" runat=\"server\" AutoGenerateColumns=\"False\"  Width=\"100%\" Theme=\"Material\">        \n         <ClientSideEvents EndCallback=\"function(s,e){popAgregar.Hide(); ldnLoader.Hide();}\" />\n             <Settings ShowFilterRow=\"True\" ShowFilterRowMenu=\"True\" />\n            <SettingsBehavior AllowFocusedRow=\"True\" />\n            <SettingsDataSecurity AllowDelete=\"False\" AllowEdit=\"False\" AllowInsert=\"False\" />\n        <Columns>\n           <%-- <dx:GridViewDataTextColumn Caption=\"ID\" FieldName=\"id\" Visible=\"True\" Width=\"5%\">\n            </dx:GridViewDataTextColumn>--%>\n            <dx:GridViewDataTextColumn Caption=\"Nombre\" FieldName=\"Nombre\" VisibleIndex=\"1\" AdaptivePriority=\"1\">\n            </dx:GridViewDataTextColumn>\n            <dx:GridViewDataTextColumn Caption=\"Fecha\" FieldName=\"Fecha\" VisibleIndex=\"1\" AdaptivePriority=\"1\">\n            </dx:GridViewDataTextColumn>\n            <dx:GridViewDataTextColumn Caption=\"Total Ventas\" FieldName=\"TotalVenta\" VisibleIndex=\"1\" AdaptivePriority=\"1\">\n            </dx:GridViewDataTextColumn>\n            <dx:GridViewDataTextColumn Caption=\"Forma de pago\" FieldName=\"descripcion\" VisibleIndex=\"1\" AdaptivePriority=\"1\">\n            </dx:GridViewDataTextColumn>\n            <dx:GridViewDataTextColumn Caption=\"Forma de pago\" FieldName=\"FormaPago\" VisibleIndex=\"1\" AdaptivePriority=\"1\">\n            </dx:GridViewDataTextColumn>\n        </Columns>\n\n        <Styles>\n            <FocusedRow BackColor=\"#CCCCCC\" ForeColor=\"Black\">\n            </FocusedRow>\n        </Styles>\n        </dx:ASPxGridView>  \n</asp:Content>\n",
-      "estadistica": 4,
+      "estadistica": 25,
       "fecha": "2023-12-26",
       "id": 3,
       "Etiquetas": [
@@ -51,7 +51,7 @@
       "dependencias": "",
       "comentario": "#cambiar nombre GetAll",
       "codigo": "protected void CargarVentasClientes() \n        {\n            DataTable dtventasclientes = _ventasClientes.VentasClientesGetAll(1, 0);\n            gvVentasclientes.DataSource = dtventasclientes;\n            gvVentasclientes.DataBind();\n        }\n",
-      "estadistica": 5,
+      "estadistica": 35,
       "fecha": "2023-12-26",
       "id": 4,
       "Etiquetas": [
@@ -66,7 +66,7 @@
       "dependencias": "",
       "comentario": "#esto se pone en la tabla donde se va a elegir:    FocusedRowChanged=\"function(s, e) { onFolioChange(); }\"",
       "codigo": " function onFolioChange() {\n        let index = gvVentasclientes.focusedRowIndex;\n        console.log(index);\n        if (index != null && index > -1) {\n            gvVentasclientes.GetRowValues(index, \"NoSerie\", function (values) {\n                console.log(values);\n                if (values && values.trim().length > 0) {\n                    btnDescargarXML.SetEnabled(true);\n                    btnDescargarPDF.SetEnabled(true);\n\n                    //btnFacturar.SetEnabled(false);\n                }\n                else {\n                    btnDescargarXML.SetEnabled(false);\n                    btnDescargarPDF.SetEnabled(false);\n\n                    //btnFacturar.SetEnabled(true);\n                }\n            });\n        }\n\n    }\n",
-      "estadistica": 6,
+      "estadistica": 39,
       "fecha": "2023-12-27",
       "id": 5,
       "Etiquetas": [
@@ -83,7 +83,7 @@
       "dependencias": "",
       "comentario": "meter esto en el using",
       "codigo": " rng.Value = dtDatos.Rows[fila - 1][columna - 1];\n                        //cambiar numero de columna si es necesario segun donde sea lo que se va a cambiar:)\n                        if (dtDatos.Columns[columna - 1].DataType == typeof(DateTime))\n                        {\n                            rng.Style.Numberformat.Format = \"dd-mm-yyyy\";\n                            //rng.Value = DateTime.Parse(rng.Text);\n                        }\n",
-      "estadistica": 21,
+      "estadistica": 23,
       "fecha": "2023-12-27",
       "id": 6,
       "Etiquetas": [
@@ -113,7 +113,7 @@
       "dependencias": "",
       "comentario": "poner id del campo",
       "codigo": " cmbActiva.SelectedItem = null;\n",
-      "estadistica": 12,
+      "estadistica": 53,
       "fecha": "2024-01-03",
       "id": 8,
       "Etiquetas": [
@@ -128,7 +128,7 @@
       "dependencias": "",
       "comentario": "#",
       "codigo": "            string activa = cmbActiva.SelectedItem != null ? cmbActiva.SelectedItem.Value.ToString() : string.Empty;\n\n",
-      "estadistica": 25,
+      "estadistica": 60,
       "fecha": "2024-01-03",
       "id": 9,
       "Etiquetas": [
@@ -159,7 +159,7 @@
       "dependencias": "",
       "comentario": "agregar variables si es necesario",
       "codigo": "IF @p_op = 3 \n\t\t\tBEGIN\n\t\t\t\tUPDATE Empresa\n\t\t\t\tSET \n\t\t\t\t\tActiva = @p_Activa\n\t\t\t\tWHERE idEmpresa = @p_idEmpresa;\n\t\t\t\tSET @p_out = @p_idEmpresa;\n\t\t\t\tRETURN;\n\t\t\tEND\n",
-      "estadistica": 2,
+      "estadistica": 39,
       "fecha": "2024-01-03",
       "id": 11,
       "Etiquetas": [
@@ -193,7 +193,7 @@
       "dependencias": "",
       "comentario": "#",
       "codigo": "<PropertiesTextEdit DisplayFormatString=\"dd/MM/yyyy\" />\n",
-      "estadistica": 5,
+      "estadistica": 25,
       "fecha": "2024-01-04",
       "id": 13,
       "Etiquetas": [
@@ -209,7 +209,7 @@
       "dependencias": "",
       "comentario": "cambiar variable de nombre",
       "codigo": " var datosFiltrados = datos.AsEnumerable()\n                             .GroupBy(row => row.Field<string>(\"NombreComercial\")) //Con esto se fitra de todos los datos segun el nombre de el dato que tengamos\n                             .Select(group => group.First())\n                             .CopyToDataTable();\n",
-      "estadistica": 2,
+      "estadistica": 33,
       "fecha": "2024-01-16",
       "id": 14,
       "Etiquetas": [
@@ -225,7 +225,7 @@
       "dependencias": "",
       "comentario": "datos son el conjunto",
       "codigo": " DataRow rowTodos = datos.NewRow();\n            rowTodos[\"ID\"] = 0; \n            rowTodos[\"Nombre\"] = \"Todos\";  \n            datos.Rows.InsertAt(rowTodos, 0);\n\n",
-      "estadistica": 4,
+      "estadistica": 6,
       "fecha": "2024-01-16",
       "id": 15,
       "Etiquetas": [
@@ -241,7 +241,7 @@
       "dependencias": "",
       "comentario": "",
       "codigo": "<section class=\"col-xs-12\">\n                           <div class=\"form-group has-feedback\">\n                                <label class=\"subtitulos\" for=\"txtNombreE\">Componente:</label>\n                              <dx:ASPxComboBox ID=\"cboPuesto\" ClientInstanceName=\"cboPuesto\" ValueField=\"IdPuesto\" TextField=\"Firmas\" runat=\"server\" Width=\"100%\" Theme=\"SoftOrange\">                                 \n                            </dx:ASPxComboBox>\n                            </div>                            \n                        </section>\n",
-      "estadistica": 10,
+      "estadistica": 23,
       "fecha": "2024-01-19",
       "id": 16,
       "Etiquetas": [
@@ -255,7 +255,7 @@
       "dependencias": "",
       "comentario": "arriba del gv",
       "codigo": "<div style=\"display: flex\">\n        <div style=\"margin-left: 35px;\">\n            <label for=\"dteFecha\">Fecha Inicial</label>\n            <dx:ASPxDateEdit ID=\"dateIn\" runat=\"server\" ClientInstanceName=\"dateIn\" Width=\"300px\" Theme=\"Moderno\">\n                <ClientSideEvents DateChanged=\"function(s, e) {realizarOperacion(); }\" />\n            </dx:ASPxDateEdit>\n\n        </div>\n\n        <div style=\"margin-left: 35px;\">\n            <label for=\"dteFecha\">Fecha Final</label>\n            <dx:ASPxDateEdit ID=\"dateFn\" runat=\"server\" ClientInstanceName=\"dateFn\" Width=\"300px\" Theme=\"Moderno\">\n                <ClientSideEvents DateChanged=\"function(s, e) {realizarOperacion();}\" />\n            </dx:ASPxDateEdit>\n        </div>\n    </div>\n\n    <br />\n",
-      "estadistica": 38,
+      "estadistica": 58,
       "fecha": "2024-01-24",
       "id": 17,
       "Etiquetas": [
@@ -270,7 +270,7 @@
       "dependencias": "",
       "comentario": "poner variables DATETIME",
       "codigo": "SELECT B.* FROM Bitacoras B\n\t\t\t\n\t\t\twhere fecha >= @p_fechaIn and  fecha <=@p_fechaFn\n",
-      "estadistica": 0,
+      "estadistica": 1,
       "fecha": "2024-01-24",
       "id": 18,
       "Etiquetas": [
@@ -298,7 +298,7 @@
       "dependencias": "",
       "comentario": "",
       "codigo": "function realizarOperacion() {\n             var dateInValue = dateIn.GetDate();\n             var dateFnValue = dateFn.GetDate();\n\n             if (dateInValue && dateFnValue) {\n                 gvCorteDiario.PerformCallback(0);\n             } else {\n                 console.log(\"Alguno de los datos est\u00e1 vac\u00edo.\");\n             }\n         }\n",
-      "estadistica": 19,
+      "estadistica": 47,
       "fecha": "2024-01-24",
       "id": 20,
       "Etiquetas": [
@@ -314,7 +314,7 @@
       "dependencias": "",
       "comentario": "se carga en el callback",
       "codigo": " protected void CargarBitacoras()\n        {\n            DateTime fin = dateFn.Date;\n            if (dateIn.Date == dateFn.Date)\n            {\n                fin = dateFn.Date.AddHours(23).AddMinutes(59).AddSeconds(59);\n\n            }\n            else\n            {\n                if (dateFn.Date.Year == 1)\n                {\n                    fin = dateIn.Date.AddHours(23).AddMinutes(59).AddSeconds(59);\n                }\n            }\n\n\n            ///falta poner los campos de selecciion a comparar\n            DataTable dtEmpresas = _Bitacora.BitacorasGetAll(1, 0, dateIn.Date, fin);\n            gvBitacora.DataSource = dtEmpresas;\n            gvBitacora.DataBind();\n\n        }\n",
-      "estadistica": 4,
+      "estadistica": 26,
       "fecha": "2024-01-24",
       "id": 21,
       "Etiquetas": [
@@ -329,7 +329,7 @@
       "dependencias": "",
       "comentario": "poner en cada botton",
       "codigo": "function IngresarPrecio(valor) {\n\n            if (valor >= 0 && valor <= 9) {\n\n                currentValue += valor.toString();\n            } else if (valor === 100) {\n \n                currentValue += \".\";\n            } else if (valor === 200) {\n\n                currentValue = currentValue.slice(0, -1);\n            }\n\n            txtCant.SetText(currentValue);\n\n        }\n",
-      "estadistica": 19,
+      "estadistica": 21,
       "fecha": "2024-02-01",
       "id": 22,
       "Etiquetas": [
@@ -344,7 +344,7 @@
       "dependencias": "",
       "comentario": "agregar css",
       "codigo": "<section class=\"section-buttons pop-buttons col-md-12 col-xs-12\" >\n                                <dx:ASPxButton ID=\"ASPxButton15\" runat=\"server\" Text=\"7\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(7);}\" />\n                                </dx:ASPxButton>\n                                <dx:ASPxButton ID=\"ASPxButton16\" runat=\"server\" Text=\"8\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(8);}\" />\n                                </dx:ASPxButton>\n                                <dx:ASPxButton ID=\"ASPxButton18\" runat=\"server\" Text=\"9\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(9);}\" />\n                                </dx:ASPxButton>\n                                <div class=\"clearfix\"></div>\n                                <dx:ASPxButton ID=\"ASPxButton19\" runat=\"server\" Text=\"4\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(4);}\" />\n                                </dx:ASPxButton>\n                                <dx:ASPxButton ID=\"ASPxButton20\" runat=\"server\" Text=\"5\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(5);}\" />\n                                </dx:ASPxButton>\n                                <dx:ASPxButton ID=\"ASPxButton21\" runat=\"server\" Text=\"6\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(6);}\" />\n                                </dx:ASPxButton>\n                                <div class=\"clearfix\"></div>\n                                <dx:ASPxButton ID=\"ASPxButton22\" runat=\"server\" Text=\"1\" AutoPostBack=\"false\"  Theme=\"Material\" CssClass=\"button-with-margin grid-item\" >\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(1); }\" />\n                                </dx:ASPxButton>\n                                <dx:ASPxButton ID=\"ASPxButton23\" runat=\"server\" Text=\"2\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(2);}\" />\n                                </dx:ASPxButton>\n                                <dx:ASPxButton ID=\"ASPxButton24\" runat=\"server\" Text=\"3\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(3);}\" />\n                                </dx:ASPxButton>\n                                 <div class=\"clearfix\"></div>\n                                <dx:ASPxButton ID=\"ASPxButton25\" runat=\"server\" Text=\".\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(100);}\" />\n                                </dx:ASPxButton>\n\n                                <dx:ASPxButton ID=\"ASPxButton26\" runat=\"server\" Text=\"0\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(0);}\" />\n                                </dx:ASPxButton>\n                        \n                                <dx:ASPxButton ID=\"ASPxButton27\" runat=\"server\" Text=\"Borrar\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"button-with-margin grid-item\">\n                                    <ClientSideEvents Click=\"function(s, e) { IngresarPrecio(200);}\" />\n                                </dx:ASPxButton>\n                            </section>\n",
-      "estadistica": 31,
+      "estadistica": 32,
       "fecha": "2024-02-01",
       "id": 23,
       "Etiquetas": [
@@ -359,7 +359,7 @@
       "dependencias": "",
       "comentario": "sin comentarios",
       "codigo": ".button-with-margin {\n            margin-right: 4px; \n            margin-bottom: 10px;\n            background-color:#542628 !important;\n            font-size:40px !important;\n        }\n        .grid-item {\n            width: 33.33%; /* 1/3 de ancho para cada columna */\n            float: left;\n        }\n\n        .clearfix {\n            clear: both;\n        }\n",
-      "estadistica": 22,
+      "estadistica": 24,
       "fecha": "2024-02-01",
       "id": 24,
       "Etiquetas": [
@@ -374,7 +374,7 @@
       "dependencias": "",
       "comentario": "#Var arriba de AutoFitColumns",
       "codigo": " var estados = worksheet.Cells[2, 3, ExcelPackage.MaxRows, 3].DataValidation.AddListDataValidation() as ExcelDataValidationList;\n                estados.AllowBlank = true;\n\n\n//Inicio Pagina Rutas\n                pck.Workbook.Worksheets.Add(\"Estados\");\n                ExcelWorksheet worksheet1 = pck.Workbook.Worksheets[2];\n                pck.Workbook.Properties.Title = \"Estados\";\n\n\n\n                worksheet1.Name = string.Format(\"Estados\");\n\n\n\n                worksheet1.Cells[1, 1].Value = \"Clave\";\n                worksheet1.Cells[1, 2].Value = \"Nombre Estado\";\n\n\n                DataTable dtRutas = (DataTable)cboEstado.DataSource;\n\n\n\n\n\n\n                for (int i = 2; i < dtRutas.Rows.Count + 2; i++)\n                {\n                    int indice = i;\n                    DataRow dr = dtRutas.Rows[indice - 2];\n\n\n\n                    worksheet1.Cells[indice, 1].Value = dr[\"IdEstado\"].ToInt();\n                    worksheet1.Cells[indice, 2].Value = dr[\"Nombre\"].ToString();\n                    estados.Formula.Values.Add(dr[\"Nombre\"].ToString());\n                }\n\n                worksheet1.Cells.AutoFitColumns(12);\n                worksheet1.Column(1).Width = 10;\n                worksheet1.Column(2).Width = 20;\n\n                worksheet1.DefaultColWidth = 15;\n                worksheet1.Cells[\"A1:B1\"].Style.Font.Bold = true;\n                worksheet1.Cells[\"A1:B1\"].Style.Font.Color.SetColor(Color.White);\n                worksheet1.Cells[\"A1:B1\"].Style.Fill.PatternType = ExcelFillStyle.Solid;\n                worksheet1.Cells[\"A1:B1\"].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(241, 178, 23));\n                //Fin pagina rutas\n",
-      "estadistica": 0,
+      "estadistica": 21,
       "fecha": "2024-02-08",
       "id": 25,
       "Etiquetas": [
@@ -389,7 +389,7 @@
       "dependencias": "",
       "comentario": "#sin comentario",
       "codigo": "int Ruta = Convert.ToInt32(cboRutas.Value);\n",
-      "estadistica": 3,
+      "estadistica": 12,
       "fecha": "2024-02-08",
       "id": 26,
       "Etiquetas": [
@@ -404,7 +404,7 @@
       "dependencias": "",
       "comentario": "#Va dentro del foreach, bajo variables",
       "codigo": "DataTable dtEstados = _Municipios.EstadosGetAll(1, 0);\n                for (int i = 2; i < dtEstados.Rows.Count + 2; i++)\n                {\n                    int indice = i;\n                    DataRow dr2 = dtEstados.Rows[indice - 2];\n\n                    if (dr2[\"Nombre\"].ToString().Equals(dr[2].ToString()))\n                    {\n                        Estado = dr2[\"IdEstado\"].ToInt();\n                        break;\n                    }\n                    else\n                    {\n                        Estado = 0;\n                    }\n                }\n",
-      "estadistica": 3,
+      "estadistica": 13,
       "fecha": "2024-02-08",
       "id": 27,
       "Etiquetas": [
@@ -420,7 +420,7 @@
       "dependencias": "",
       "comentario": "#sin comentario",
       "codigo": "<div  class=\"col-md-6 col-xs-6\">\n                            <div class=\"form-group\">\n                                <label for=\"txtNombreE\">Coordinador de proyecto:</label>\n                                <dx:ASPxComboBox ID=\"cboCoordinaProyec\" ClientInstanceName=\"cboCoordinaProyec\"  runat=\"server\" Width=\"100%\" Theme=\"Material\">\n                                    <Items>\n                                        <dx:ListEditItem Text=\"Si\" Value=\"1\" />\n                                        <dx:ListEditItem Text=\"No\" Value=\"0\" />        \n                                    </Items>\n\n                                    <ValidationSettings ValidationGroup=\"formulario\" ErrorDisplayMode=\"ImageWithTooltip\">\n                                        <RequiredField IsRequired=\"True\" ErrorText=\"El campo es requerido\" />\n                                    </ValidationSettings>\n                                </dx:ASPxComboBox>     \n                            </div>\n                        </div>\n",
-      "estadistica": 3,
+      "estadistica": 35,
       "fecha": "2024-02-08",
       "id": 28,
       "Etiquetas": [
@@ -434,7 +434,7 @@
       "dependencias": "",
       "comentario": "#Se pone antes del from ",
       "codigo": "CASE \n\t\t\tWHEN p.MostrarAplicacion = 1 THEN 'Si'\n\t\t\tELSE 'No'\n\t\t\tEND AS MostrarAplicacionText\n",
-      "estadistica": 10,
+      "estadistica": 11,
       "fecha": "2024-02-08",
       "id": 29,
       "Etiquetas": [
@@ -477,7 +477,7 @@
       "dependencias": "",
       "comentario": "#sin comentarios",
       "codigo": " <dx:ASPxPopupControl ID=\"popAgregar\" runat=\"server\" ClientInstanceName=\"popAgregar\" CloseAction=\"CloseButton\" HeaderText=\"Asignaci\u00f3n\" ShowCloseButton=\"false\"\n        Modal=\"True\" PopupHorizontalAlign=\"WindowCenter\" PopupVerticalAlign=\"WindowCenter\" AllowDragging=\"True\" AutoUpdatePosition=\"True\" Theme=\"Material\"\n        OnWindowCallback=\"popAgregar_WindowCallback\"> \n        \n        <SettingsAdaptivity Mode=\"Always\" VerticalAlign=\"WindowCenter\" MaxWidth=\"1000px\" />\n\n        <ContentCollection>\n            <dx:PopupControlContentControl>\n                <section class=\"row\" id=\"contenedor\">\n                    <section class=\"col-md-12 col-xs-12\">\n                        <div class=\"form-group has-feedback\">\n\n                            <dx:ASPxPageControl ID=\"pgAccionesCli\" ClientInstanceName=\"pgAccionesCli\" runat=\"server\" ActiveTabIndex=\"0\" Theme=\"Material\">\n                                <ClientSideEvents  ActiveTabChanging=\"function(s, e) {\n                                    if(open) {\n                                        var next = validarSeccion(pgAccionesCli.GetActiveTab().Tab1);\n                                        if(!next) {\n                                            e.cancel = true;\n                                            }\n                                        }\n                                    }\"                             \n                                />\n\n\n                                \n\n                                <TabPages>\n                                    <dx:TabPage Text=\"Sucursales\"  runat=\"server\" Name=\"Tab1\">\n                                        <ContentCollection>\n                                            <dx:ContentControl runat=\"server\" SupportsDisabledAttribute=\"True\">\n\n\n                                                <section  style=\"display:flex;\">\n                                                    <div class=\"flxM\">\n                                                        <div style=\"width: 50%;\">\n                                                            <dx:ASPxLabel ID=\"_lblCant\" ClientInstanceName=\"_lblCant\"  Theme=\"Material\"  Text=\"Cantidad Asignada:\"  runat=\"server\"></dx:ASPxLabel>\n                                                        </div>\n                                                        <div style=\"text-align: right; width: 30%;\">\n                                                            <dx:ASPxLabel ID=\"lblCant\" ClientInstanceName=\"lblCant\" Style=\"font-size: 30px; color: #505050\" runat=\"server\"></dx:ASPxLabel>\n                                                        </div>\n                                                    </div>\n\n                                                    <div class=\"flxM\">\n                                                        <div style=\"width: 50%;\">\n                                                            <dx:ASPxLabel ID=\"_lblCantX\" ClientInstanceName=\"_lblCantX\"  Theme=\"Material\"  Text=\"Cantidad Por Asignar:\" runat=\"server\"></dx:ASPxLabel>\n                                                        </div>\n                                                        <div style=\"text-align: right; width: 30%;\">\n                                                            <dx:ASPxLabel ID=\"lblCantX\" ClientInstanceName=\"lblCantX\" Style=\"font-size: 30px; color: #505050\" runat=\"server\"></dx:ASPxLabel>\n                                                        </div>\n                                                    </div>\n                                                </section>\n\n                                                <div class=\"row\">\n                                                    <div class=\"col-md-12\">\n\n                                                        \n\n                                                        <br />\n\n                                                        <dx:ASPxGridView ID=\"gvSucursales\" ClientInstanceName=\"gvSucursales\" runat=\"server\" AutoGenerateColumns=\"False\"  Width=\"100%\" Theme=\"Material\">  <%--OnCustomCallback=\"gvGastosAutorizados_CustomCallback\"--%>\n                                                            <ClientSideEvents EndCallback=\"function(s,e){ ldnLoader.Hide();}\"/>\n                                                                <Settings ShowFilterRow=\"True\" ShowFilterRowMenu=\"True\" />\n                                                            <SettingsBehavior AllowFocusedRow=\"True\" />\n                                                            <SettingsDataSecurity AllowDelete=\"False\" AllowEdit=\"False\" AllowInsert=\"False\" />\n                                                                <Columns>\n                                                                    <%-- <dx:GridViewDataTextColumn Caption=\"ID\" FieldName=\"id\" Visible=\"True\" Width=\"5%\">\n                                                                    </dx:GridViewDataTextColumn>--%>\n                                                                    <dx:GridViewDataTextColumn Caption=\"IdSucursal\" FieldName=\"IdSucursal\" VisibleIndex=\"1\" AdaptivePriority=\"1\" Visible=\"false\" >\n                                                                    </dx:GridViewDataTextColumn>\n\n                                                                    <dx:GridViewDataTextColumn Caption=\"Sucursales\" FieldName=\"NombreSucursal\" VisibleIndex=\"1\" AdaptivePriority=\"1\" >\n                                                                    </dx:GridViewDataTextColumn>\n\n                                                                    <dx:GridViewDataTextColumn Caption=\"Cantidad\" FieldName=\"cantidad\" VisibleIndex=\"1\" AdaptivePriority=\"1\"  >\n                                                                    </dx:GridViewDataTextColumn>\n                                                               \n                                                                </Columns>\n                                                                <Styles>\n                                                                    <FocusedRow BackColor=\"#CCCCCC\" ForeColor=\"Black\">\n                                                                    </FocusedRow>\n                                                                </Styles>\n                                                        </dx:ASPxGridView>\n                                                        &nbsp;&nbsp;\n                                                        <section class=\"section-buttons\">\n\n                                                            <dx:ASPxButton ID=\"btnAgregarGastosAutorizados\" ClientInstanceName=\"btnAgregarGastosAutorizados\" runat=\"server\" Text=\"Agregar\" AutoPostBack=\"false\" Theme=\"Material\" CssClass=\"animated-button\">\n                                                                <ClientSideEvents Click=\"function(s,e) {\n                                                                    accionGA=1;\n                                                                    popAgregarGastosAutorizados.PerformCallback(accionGA);    \n                                                                    popAgregarGastosAutorizados.Show(); \n                                                                    } \" />\n                                                            </dx:ASPxButton>\n\n                                                        </section>\n\n                                                        \n\n                                                    </div>\n                                                </div>\n\n                                            </dx:ContentControl>\n                                        </ContentCollection>\n                                    </dx:TabPage>\n\n\n                                </TabPages>\n\n                            </dx:ASPxPageControl>\n\n                        </div>\n                    </section>\n\n\n                    <section class=\"section-buttons pop-buttons col-md-12 col-xs-12\">\n                        <dx:ASPxButton ID=\"btnAceptar\" runat=\"server\" Text=\"Aceptar\" AutoPostBack=\"false\" Theme=\"Material\">\n                            <ClientSideEvents Click=\"function(s, e) {\n                                validar();\n                            }\" />\n                        </dx:ASPxButton>\n\n                        <dx:ASPxButton ID=\"btnCerrar\" runat=\"server\" Text=\"Cerrar\" AutoPostBack=\"false\" Theme=\"Material\">\n                            <ClientSideEvents Click=\"function(s, e) { popAgregar.Hide() }\" />\n                        </dx:ASPxButton>\n                    </section>\n                </section>\n            </dx:PopupControlContentControl>\n        </ContentCollection>\n    </dx:ASPxPopupControl>\n",
-      "estadistica": 1,
+      "estadistica": 56,
       "fecha": "2024-02-14",
       "id": 32,
       "Etiquetas": [
@@ -493,7 +493,7 @@
       "dependencias": "",
       "comentario": "en aspx el label",
       "codigo": "dteFecNacDP.MaxDate = DateTime.Today;\n",
-      "estadistica": 10,
+      "estadistica": 22,
       "fecha": "2024-02-22",
       "id": 33,
       "Etiquetas": [
@@ -508,7 +508,7 @@
       "dependencias": "",
       "comentario": "poner dentro !IsPostBack",
       "codigo": "dteFecNacDP.MinDate = fechaHoy.AddYears(-100);\n",
-      "estadistica": 2,
+      "estadistica": 20,
       "fecha": "2024-02-26",
       "id": 34,
       "Etiquetas": [
@@ -523,7 +523,7 @@
       "dependencias": "",
       "comentario": "poner arriba del ClientSideEvents",
       "codigo": "<ValidationSettings AllowedFileExtensions=\".jpg,.jpeg,.jpe,.png,.xlsx,.pdf,.docx\" MaxFileSize=\"10000000\">\n                                        </ValidationSettings>\n",
-      "estadistica": 2,
+      "estadistica": 17,
       "fecha": "2024-02-26",
       "id": 35,
       "Etiquetas": [
@@ -556,7 +556,7 @@
       "dependencias": "",
       "comentario": "se llama asi Numeric(s,e);",
       "codigo": " function Numeric(s, e) {\n            var theEvent = e.htmlEvent || window.event;\n            var key = theEvent.keyCode || theEvent.which;\n            key = String.fromCharCode(key);\n            var regex = /[0-9,.,-]/;\n\n            if (!regex.test(key)) {\n                theEvent.returnValue = false;\n                if (theEvent.preventDefault)\n                    theEvent.preventDefault();\n            }\n        }\n",
-      "estadistica": 226,
+      "estadistica": 654,
       "fecha": "2024-02-26",
       "id": 37,
       "Etiquetas": [
@@ -604,7 +604,7 @@
       "dependencias": "",
       "comentario": "sin comentario",
       "codigo": "DateTime FechaV = Convert.ToDateTime(dteFechaV.Text);\n",
-      "estadistica": 0,
+      "estadistica": 12,
       "fecha": "2024-03-26",
       "id": 40,
       "Etiquetas": [
@@ -619,7 +619,7 @@
       "dependencias": "",
       "comentario": "#sin comentarios",
       "codigo": "<div style=\"display:flex;padding-bottom:10px\">\n                        <label for=\"Valor\" style=\"width:40px;padding-left:60px;\">Activo:</label>\n                          <asp:CheckBox ID=\"cbxSindicalizado\" runat=\"server\" AutoPostBack=\"false\" CheckState=\"Unchecked\" Text=\"<%$ Resources:Lenguajes, nwECcheckSindical %>\"\n                          TabIndex=\"30\" />\n                    </div> \n",
-      "estadistica": 0,
+      "estadistica": 15,
       "fecha": "2024-04-02",
       "id": 41,
       "Etiquetas": [
@@ -633,7 +633,7 @@
       "dependencias": "",
       "comentario": "",
       "codigo": "int noSubsidio = dt.Rows[0][\"NoSubsidio\"].ToInt();\n                    if (noSubsidio == 0) { ckNoSubisdio.Checked = false; } else { ckNoSubisdio.Checked = true; }\n",
-      "estadistica": 1,
+      "estadistica": 34,
       "fecha": "2024-04-02",
       "id": 42,
       "Etiquetas": [
@@ -648,7 +648,7 @@
       "dependencias": "",
       "comentario": "#sin comentario",
       "codigo": "<dx:GridViewDataCheckColumn Caption=\"Activo\" FieldName=\"Activo\" Width=\"150px\" ShowInCustomizationForm=\"True\"\n                                            VisibleIndex=\"1\" Visible=\"true\">\n                                            <CellStyle HorizontalAlign=\"Center\">\n                                            </CellStyle>\n                                        </dx:GridViewDataCheckColumn>\n",
-      "estadistica": 32,
+      "estadistica": 54,
       "fecha": "2024-04-03",
       "Etiquetas": [
         "aplicar CheckColumn en el grid",
@@ -656,6 +656,386 @@
         "check en tabla"
       ],
       "id": 43
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "icono Actualizar",
+      "dependencias": "",
+      "comentario": "#sin comentario",
+      "codigo": "spriteUpdate\n",
+      "estadistica": 49,
+      "fecha": "2024-04-09",
+      "Etiquetas": [
+        "icono actualizar",
+        "actualizar",
+        "icon",
+        "menu imagen actualizar"
+      ],
+      "id": 44
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "icono Salir",
+      "dependencias": "",
+      "comentario": "#sin comentario",
+      "codigo": "spriteUndo\n",
+      "estadistica": 6,
+      "fecha": "2024-04-09",
+      "Etiquetas": [
+        "spriteUndo",
+        "icono Salir",
+        "exit icon",
+        "icono para salir"
+      ],
+      "id": 45
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "seleccionar texto del cbo",
+      "dependencias": "",
+      "comentario": "#sin comentario",
+      "codigo": "string Periodo = cboPeriodo.Text;\n",
+      "estadistica": 39,
+      "fecha": "2024-04-09",
+      "Etiquetas": [
+        "seleccionar texto del cbo",
+        "combobox select text",
+        "no value",
+        "no id cbo"
+      ],
+      "id": 46
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "Python",
+      "accion": "RNN sumas",
+      "dependencias": "",
+      "comentario": "#cambiar set de datos",
+      "codigo": "numeros_aleatorios = np.random.randint(0, 7000, size=(7000, 2))\nnumeros_aleatorios\n\nsuma_numeros = numeros_aleatorios.sum(axis=1)\nsuma_numeros\n\n#####################\n\nimport tensorflow as tf\n\ncelsius = np.array(numeros_aleatorios, dtype=int)\nfahr = np.array(suma_numeros, dtype=int)\n\ncapa = tf.keras.layers.Dense(units=1, input_shape=[2])\nmodelo = tf.keras.Sequential([capa])\n\nmodelo.compile(\n    optimizer = tf.keras.optimizers.Adam(0.1),\n    loss = 'mean_squared_error'\n)\n\n\nprint(\"comenzamos entrenamiendo\")\nhistorial = modelo.fit(celsius,fahr,epochs=100, verbose =False)\nprint(\"modelo entrenado\")\n\n#############\n\nprint(\"hagamos prediccion\")\nresultado = modelo.predict([[0,0]])\nprint(\"el resultado es\" + str(resultado) + \"fahren\")\n",
+      "estadistica": 7,
+      "fecha": "2024-04-10",
+      "Etiquetas": [
+        "sumas y restas",
+        "Red neuronal densa sumas y restas",
+        "numeros aleatorios para red neuronal",
+        "entrenamiento de red neuronal",
+        "Desnse",
+        "sequensial"
+      ],
+      "id": 47
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "seleccionar datos del grid",
+      "dependencias": "",
+      "comentario": "#poner nombre de el grid",
+      "codigo": "int id = gvPerfilesUsuarios.GetRowValues(gvPerfilesUsuarios.FocusedRowIndex, \"idPerfil\").ToInt();\n",
+      "estadistica": 37,
+      "fecha": "2024-04-10",
+      "Etiquetas": [
+        "seleccionar datos del grid",
+        "gid seleccionar",
+        "seleccionar id",
+        "int id",
+        "GetRowValues",
+        "seleccionar un dato del grid en c"
+      ],
+      "id": 48
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "recargar pagina aspx",
+      "dependencias": "",
+      "comentario": "#meter dentro del componente",
+      "codigo": "AutoPostBack=\"false\"\n",
+      "estadistica": 8,
+      "fecha": "2024-04-11",
+      "Etiquetas": [
+        "AutoPostBack",
+        "recargar pagina aspx",
+        "recargar varias veces aspx",
+        "cargar pagina varias veces",
+        "recargar true"
+      ],
+      "id": 49
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "clave no duplicada",
+      "dependencias": "",
+      "comentario": "#agregar el cbk",
+      "codigo": "protected void cbkClave_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)\n        {\n            int clave = txtClave.Text.ToInt();\n            DataTable LlantasGetId = nm.ClaveGetId(1, clave);\n            if (LlantasGetId.Rows.Count > 0)\n            {\n                cbkUsuario.JSProperties[\"cpRows\"] = nm.ClaveGetId(1, clave).Rows[0][0].ToInt();\n            }\n            else\n            {\n                cbkUsuario.JSProperties[\"cpRows\"] = 0;\n            }\n        }\n",
+      "estadistica": 12,
+      "fecha": "2024-04-12",
+      "Etiquetas": [
+        "No duplicar",
+        "dato no duplicado",
+        "cbkclave",
+        "cbk no duplicado",
+        "duplicar",
+        "dato repetido",
+        "no repetir datos en el grid"
+      ],
+      "id": 50
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "funcion en un txt",
+      "dependencias": "",
+      "comentario": "#sin comentarios",
+      "codigo": "<ClientSideEvents KeyUp=\"function(s, e) { }\" LostFocus=\"function(s, e) { onLostFocusUsuario(); } \" />\n",
+      "estadistica": 3,
+      "fecha": "2024-04-12",
+      "Etiquetas": [
+        "ejecutar funcion en un txt",
+        "funcion en label",
+        "ejecutar funcion keyUp",
+        "funcion en un txt",
+        "LostFocus",
+        "onLostFocusUsuario"
+      ],
+      "id": 51
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "JavaScript",
+      "accion": "function onLostFocus",
+      "dependencias": "",
+      "comentario": "#el txt es el del label",
+      "codigo": "function onLostFocusUsuario() {\n            if (txtEquipo.GetText().length > 0) {\n                console.log('si entra a verificar');\n                cbkUsuario.PerformCallback();\n            }\n        }\n",
+      "estadistica": 9,
+      "fecha": "2024-04-12",
+      "Etiquetas": [
+        "function onLostFocus",
+        "funcionOnLostFocus",
+        "Focus",
+        "funcion focus",
+        "funcion de validacion para objetos clave texto repetidos"
+      ],
+      "id": 52
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "JavaScript",
+      "accion": "function onEndUsuario",
+      "dependencias": "",
+      "comentario": "#se pone en el cbk",
+      "codigo": " function onEndUsuario() {\n            var rows = cbkClave.cpRows;\n            if (rows > 0) {\n                cbkClave.SetText('');\n                popMensaje.Show();\n                $('#mensaje').text('El No. Serie especificado ya se encuentra en uso. Ingrese un No. Serie diferente.');\n            }\n        }\n",
+      "estadistica": 2,
+      "fecha": "2024-04-12",
+      "Etiquetas": [
+        "function onEndUsuario",
+        "funcion despues de focus",
+        "funcion de validacion despues del focus",
+        "mostrar mensaje de clave, texto, objeto repetido"
+      ],
+      "id": 53
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "cbk",
+      "dependencias": "",
+      "comentario": "#uso de funciones onEndUsuario",
+      "codigo": "<dx:ASPxCallback ID=\"cbkClave\" runat=\"server\" ClientInstanceName=\"cbkClave\" OnCallback=\"cbkClave_Callback\">\n        <ClientSideEvents EndCallback=\"function(s, e) {  onEndUsuario();  } \" />\n    </dx:ASPxCallback>\n",
+      "estadistica": 34,
+      "fecha": "2024-04-12",
+      "Etiquetas": [
+        "cbk",
+        "cbk preform callback",
+        "cbk dato repetido",
+        "cbk para activar informacion"
+      ],
+      "id": 54
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "obtener varios registros de un grid",
+      "dependencias": "",
+      "comentario": "#el primer \"\" es la tabla y el segundo el id",
+      "codigo": "protected string ObtenerXML(DevExpress.Web.ASPxGridView gv, string columna)\n        {\n            if (gv.Selection.Count > 0)\n            {\n                List<object> ids = gv.GetSelectedFieldValues(columna);\n                DataTable tabla = new DataTable(\"Empresa\");\n                tabla.Columns.Add(\"id\");\n\n                foreach (object id in ids)\n                {\n                    DataRow dr = tabla.NewRow();\n                    dr[\"id\"] = id.ToInt();\n                    tabla.Rows.Add(dr);\n                }\n\n                DataSet dsDatos = new DataSet();\n                dsDatos.Tables.Add(tabla);\n\n                return dsDatos.GetXml();\n            }\n            else\n            {\n                return \"<Newdataset></Newdataset>\";\n            }\n        }\n\n\n\n\n\n",
+      "estadistica": 12,
+      "fecha": "2024-04-16",
+      "Etiquetas": [
+        "generar xml",
+        "obtener datos de un grid",
+        "obtener varios registros de un grid",
+        "seleccionar registros",
+        "varios registros grid",
+        "guardar varios registros en c"
+      ],
+      "id": 55
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "recorrer el xml",
+      "dependencias": "",
+      "comentario": "#(//'nombre de tabla'/'id que pusiste')",
+      "codigo": " string filtro = ObtenerXML(gvEmpresas, \"idEmpresa\");\n\n            XmlDocument xmlDocument = new XmlDocument();\n            xmlDocument.LoadXml(filtro);\n\n            // Iterar sobre los nodos <id> dentro del XML\n            XmlNodeList idNodes = xmlDocument.SelectNodes(\"//Empresa/id\");\n            foreach (XmlNode idNode in idNodes)\n            {\n                int id = int.Parse(idNode.InnerText);\n\n\n            }\n",
+      "estadistica": 3,
+      "fecha": "2024-04-16",
+      "Etiquetas": [
+        "recorrer el xml de los datos seleccionados",
+        "obtener los id del xml"
+      ],
+      "id": 56
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "SQL",
+      "accion": "sql que me dio julio",
+      "dependencias": "",
+      "comentario": "#sin comentario",
+      "codigo": "select idMenuPagina from usPermisosPerfiles\nwhere idPerfil = 2\n\n\nselect * from usPermisosUsuarios\nwhere idUsuario = 3\n\n\n\n--elimimar de la tabla usPermisosUsuarios\n\n--delete usPermisosUsuarios where idUsuario=1 (Roque)\n\n--empresa 1 y 2, perfil 2\n\nselect idMenuPagina from usPermisosPerfiles where idPerfil=3\n\nEMPRESA 1\n--INSERT INTO usPermisosUsuarios VALUES(1,1,815)\n--INSERT INTO usPermisosUsuarios VALUES(1,1,816)\n\nEMPRESA 2\n--INSERT INTO usPermisosUsuarios VALUES(2,1,815)\n--INSERT INTO usPermisosUsuarios VALUES(2,1,816)\n",
+      "estadistica": 14,
+      "fecha": "2024-04-16",
+      "Etiquetas": [
+        "sql que me dio julio",
+        "sql de ayer",
+        "sql de usPermisosUsuarios usPermisosPerfiles",
+        "sql de apoyo"
+      ],
+      "id": 57
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "C#",
+      "accion": "log bitacora",
+      "dependencias": "",
+      "comentario": "#sin comentarios",
+      "codigo": "string p_Texto = \"El usuario\" + Session[\"usuarioNombre\"].ToString() + \"actualizo vigencias\";\nnm.agInsertLog(Session[\"IdUser\"].ToInt(), DateTime.Now, \"Actualizar\", \"us/UsuariosPortal.aspx\", p_Texto, Session[\"idEmpresa\"].ToInt());\n",
+      "estadistica": 20,
+      "fecha": "2024-04-17",
+      "Etiquetas": [
+        "log bitacora",
+        "registrar el movimiento",
+        "agInsertLog",
+        "guardar movimiento en sql",
+        "log en c",
+        "insertar log"
+      ],
+      "id": 58
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "SQL",
+      "accion": "sql tablas union",
+      "dependencias": "",
+      "comentario": "",
+      "codigo": "\t\t\t\tSELECT \n\t\t\t\tag1.idEmpresa, \n\t\t\t\tag1.RazonSocial, \n\t\t\t\tag1.Referencia, \n\t\t\t\tCASE \n\t\t\t\t\tWHEN ag2.idEmpresa IS NOT NULL THEN 'true' \n\t\t\t\t\tELSE 'false' \n\t\t\t\tEND AS Origen\n\t\t\t\tFROM \n\t\t\t\t\tagEmpresas AS ag1\n\t\t\t\tLEFT JOIN \n\t\t\t\t\t(\n\t\t\t\t\t\tSELECT idEmpresa\n\t\t\t\t\t\tFROM agEmpresas\n\t\t\t\t\t\tWHERE idEmpresa = 4 OR idEmpresa = 5 OR idEmpresa = 6\n\t\t\t\t\t) AS ag2\n\t\t\t\tON \n\t\t\t\t\tag1.idEmpresa = ag2.idEmpresa;\n",
+      "estadistica": 4,
+      "fecha": "2024-04-18",
+      "Etiquetas": [
+        "tablas union, tablas juntas, ultimo grid de ayer"
+      ],
+      "id": 59
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "radioButton para grid",
+      "dependencias": "",
+      "comentario": "#poner setting abajo de </Columns>",
+      "codigo": " <dx:GridViewCommandColumn Caption=\" \" ShowInCustomizationForm=\"True\" \n      ShowSelectCheckbox=\"True\" VisibleIndex=\"0\" Width=\"50px\">\n </dx:GridViewCommandColumn>\n\n\n\n\n/////////////setting//////////////////\n\n\n<SettingsBehavior AllowSelectSingleRowOnly=\"True\" AllowSort=\"False\" />\n",
+      "estadistica": 5,
+      "fecha": "2024-04-23",
+      "Etiquetas": [
+        "radioButton para grid",
+        "setting abajo del columns",
+        "poner un radi buton en grid",
+        "radio",
+        "button",
+        "bejaibor",
+        "Behavior",
+        "convertir un check a un radio",
+        "que solo se puedan elejir un registro del grid",
+        "elejir y mostrar un registro de un grid"
+      ],
+      "id": 60
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "alinear a la izquierda grid",
+      "dependencias": "",
+      "comentario": "#poner dentro del doom",
+      "codigo": "<CellStyle HorizontalAlign=\"Left\">\n</CellStyle>\n",
+      "estadistica": 2,
+      "fecha": "2024-04-24",
+      "Etiquetas": [
+        "alinear a la izquierda grid",
+        "poner a la izquierda los nombres",
+        "poner izquierda los campos del grid",
+        "poner a la izquierda una columna",
+        "aling Left"
+      ],
+      "id": 61
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "que no se mueva el pop por el grid",
+      "dependencias": "",
+      "comentario": "#adaptar el tama\u00f1o del pop MinHeight=\"400\"",
+      "codigo": " <Settings ShowFilterRow=\"True\" ShowFilterRowMenu=\"True\" ShowVerticalScrollBar=\"True\" VerticalScrollableHeight=\"200\"/>\n\n//poner abajo del gridview//\n",
+      "estadistica": 5,
+      "fecha": "2024-04-24",
+      "Etiquetas": [
+        "que no se mueva el pop por el grid",
+        "scroll grid",
+        "grid mas grande",
+        "poner scroll en el grid",
+        "que no se mueve el pop con 2 grid",
+        "agrandar grid sin que se mueva el pop",
+        "poner un scroll bar en el grid o en un pop",
+        "setting scroll tamanio"
+      ],
+      "id": 62
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "SQL",
+      "accion": "meter datos de una tabla a un insert",
+      "dependencias": "",
+      "comentario": "#",
+      "codigo": "INSERT INTO usPermisosUsuarios ( idEmpresa , idUsuario, idMenuPagina )\n\t\t\tSELECT @p_idEmpresa, @p_idUsuario, idMenuPagina\n\t\t\tFROM usPermisosPerfiles\n\t\t\tWHERE idPerfil = @p_idperfil\n",
+      "estadistica": 43,
+      "fecha": "2024-04-24",
+      "Etiquetas": [
+        "for en sql",
+        "insertar varios datos en un insert sql",
+        "poner varios datos en un insert",
+        "poner un select en un insert",
+        "poner los datos de una tabla en un insert",
+        "poner varios registros de otra tabla en sql"
+      ],
+      "id": 63
+    },
+    {
+      "favoitos": false,
+      "lenguaje": "ASPX",
+      "accion": "icono salir",
+      "dependencias": "",
+      "comentario": "#sin comentario",
+      "codigo": "spriteUndo\n",
+      "estadistica": 54,
+      "fecha": "2024-04-26",
+      "Etiquetas": [
+        "icono salir",
+        "figura salir",
+        "imagen de salir",
+        "poner icono de salir"
+      ],
+      "id": 64
     }
   ]
 }

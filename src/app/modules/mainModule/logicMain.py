@@ -5,6 +5,7 @@ import pyperclip
 import time
 import joblib
 import pandas as pd
+import subprocess
 
 #with open("Consultor/data/data.json", 'r') as file:
         #json_data = json.load(file)
@@ -57,11 +58,19 @@ def obtener_seleccionesIA(self, event):
                                 self.resultado_texto.insert(tk.END, codigo)  # Insertar el nuevo contenido
                                 self.resultado_texto.config(state="disabled")  # Volver a deshabilitar la edición
         
+        
 
 
 def obtener_selecciones(self ,event):
         seleccion_lenguaje = self.combo_lenguaje.get()
         seleccion_accion = self.combo_accion.get()
+
+
+       # ruta_a_tu_aplicacion = r'C:\%windir%\system32\SnippingTool.exe'
+
+        # Abre la aplicación
+        #subprocess.run([ruta_a_tu_aplicacion])
+
 
         metaData = Actualizar_dato() 
         datos = metaData["datos"]
@@ -154,5 +163,14 @@ def verify_request(pregunta):
     
     return solucion
 
+
+
+def cambio_de_imagen(self):
+        print("hola")
+        #self.icono_change = tk.PhotoImage(file="data/Cara_0.png")
+        #self.icono_change = self.icono_change.subsample(15)
+        #self.Label_icon_Ia.config(image=self.icono_change)
+
+        #self.after(20000, self.cambio_de_imagen)
 
         

@@ -97,3 +97,110 @@ ID,Etiqueta
 43,aplicar checkcolumn en el grid
 43,columna check
 43,check en tabla
+44,icono actualizar
+44,actualizar
+44,icon
+44,menu imagen actualizar
+45,spriteundo
+45,icono salir
+45,exit icon
+45,icono para salir
+46,seleccionar texto del cbo
+46,combobox select text
+46,no value
+46,no id cbo
+47,sumas y restas
+47,red neuronal densa sumas y restas
+47,numeros aleatorios para red neuronal
+47,entrenamiento de red neuronal
+47,desnse
+47,sequensial
+48,seleccionar datos del grid
+48,gid seleccionar
+48,seleccionar id
+48,int id
+48,getrowvalues
+48,seleccionar un dato del grid en c
+49,autopostback
+49,recargar pagina aspx
+49,recargar varias veces aspx
+49,cargar pagina varias veces
+49,recargar true
+50,no duplicar
+50,dato no duplicado
+50,cbkclave
+50,cbk no duplicado
+50,duplicar
+50,dato repetido
+50,no repetir datos en el grid
+51,ejecutar funcion en un txt
+51,funcion en label
+51,ejecutar funcion keyup
+51,funcion en un txt
+51,lostfocus
+51,onlostfocususuario
+52,function onlostfocus
+52,funciononlostfocus
+52,focus
+52,funcion focus
+52,funcion de validacion para objetos clave texto repetidos
+53,function onendusuario
+53,funcion despues de focus
+53,funcion de validacion despues del focus
+53,"mostrar mensaje de clave , texto , objeto repetido"
+54,cbk
+54,cbk preform callback
+54,cbk dato repetido
+54,cbk para activar informacion
+55,generar xml
+55,obtener datos de un grid
+55,obtener varios registros de un grid
+55,seleccionar registros
+55,varios registros grid
+55,guardar varios registros en c
+56,recorrer el xml de los datos seleccionados
+56,obtener los id del xml
+57,sql que me dio julio
+57,sql de ayer
+57,sql de uspermisosusuarios uspermisosperfiles
+57,sql de apoyo
+58,log bitacora
+58,registrar el movimiento
+58,aginsertlog
+58,guardar movimiento en sql
+58,log en c
+58,insertar log
+59,"tablas union , tablas juntas , ultimo grid de ayer"
+60,radiobutton para grid
+60,setting abajo del columns
+60,poner un radi buton en grid
+60,radio
+60,button
+60,bejaibor
+60,behavior
+60,convertir un check a un radio
+60,que solo se puedan elejir un registro del grid
+60,elejir y mostrar un registro de un grid
+61,alinear a la izquierda grid
+61,poner a la izquierda los nombres
+61,poner izquierda los campos del grid
+61,poner a la izquierda una columna
+61,aling left
+62,que no se mueva el pop por el grid
+62,scroll grid
+62,grid mas grande
+62,poner scroll en el grid
+62,que no se mueve el pop con 2 grid
+62,agrandar grid sin que se mueva el pop
+62,poner un scroll bar en el grid o en un pop
+62,setting scroll tamanio
+63,for en sql
+63,insertar varios datos en un insert sql
+63,poner varios datos en un insert
+63,poner un select en un insert
+63,poner los datos de una tabla en un insert
+63,poner varios registros de otra tabla en sql
+64,icono salir
+64,figura salir
+64,imagen de salir
+64,poner icono de salir

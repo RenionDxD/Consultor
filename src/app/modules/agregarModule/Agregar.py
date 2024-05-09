@@ -49,12 +49,18 @@ class Agregar(tk.Frame):
         self.label_Etiqueta = tk.Text(self.panel_izquierdo, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), width=30,height=10)
         self.label_Etiqueta.pack(side="top",  padx=1, pady=10)
 
-
+        self.botones_frame = tk.Frame(self,background=ColorBgConstant)
+        self.botones_frame.pack(pady=1,padx=5)
         
 
+
+        self.icono_chico = tk.PhotoImage(file="data/pantalla.png")
+        self.icono_chico = self.icono_chico.subsample(15)
         # Botón para registrar el código
-        self.registrar_boton = tk.Button(self, text="Registrar Código",background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10),activeforeground=ColorBgConstant, activebackground=ColorLetterConstant, command=self.registrar_codigo)
-        self.registrar_boton.pack(pady=5)
+        self.registrar_boton = tk.Button(self.botones_frame, text=">> Registrar Código <<",background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10),activeforeground=ColorBgConstant, activebackground=ColorLetterConstant, command=self.registrar_codigo)
+        self.registrar_boton.pack(pady=2)
+        self.label_Icon = tk.Label(self.botones_frame,background=BorderColor, fg=ColorLetterConstant, font=(font, 10), image=self.icono_chico ,text="Icono")
+        self.label_Icon.pack(pady=1)
 
         
         
