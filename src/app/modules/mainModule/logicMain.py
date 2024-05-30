@@ -27,7 +27,7 @@ def obtener_seleccionesIA(self, event):
                                 self.etiqueta_accion.config(text=f"Accion: {""}")
                                 self.etiqueta_comentario.config(text=f"Comentario: {""}")
                                 self.etiqueta_fecha.config(text=f"Fecha: {""}")
-                                self.etiqueta_usado.config(text=f"Veces usado: {""}")
+                                #self.etiqueta_usado.config(text=f"Veces usado: {""}")
                                 self.resultado_texto.delete("1.0", tk.END)
                                
                         else:
@@ -48,7 +48,7 @@ def obtener_seleccionesIA(self, event):
                                 self.etiqueta_accion.config(text=f"Accion: {accion}")
                                 self.etiqueta_comentario.config(text=f"Comentario: {comentario}")
                                 self.etiqueta_fecha.config(text=f"Fecha: {fecha}")
-                                self.etiqueta_usado.config(text=f"Veces usado: {""}")
+                                #self.etiqueta_usado.config(text=f"Veces usado: {""}")
 
                                 
 
@@ -93,7 +93,7 @@ def obtener_selecciones(self ,event):
                         self.etiqueta_accion.config(text=f"Accion: {accion}")
                         self.etiqueta_comentario.config(text=f"Comentario: {comentario}")
                         self.etiqueta_fecha.config(text=f"Fecha: {fecha}")
-                        self.etiqueta_usado.config(text=f"Veces usado: {estadistica}")
+                        #self.etiqueta_usado.config(text=f"Veces usado: {estadistica}")
 
                         
 

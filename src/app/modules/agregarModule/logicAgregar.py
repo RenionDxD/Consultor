@@ -2,6 +2,7 @@ import tkinter as tk
 import json
 from datetime import datetime
 from modules.agregarModule.LogicIAAgregar import guardar_limpiar, limpieza, crear_modelos_cercania
+from modules.agregarModule.recognition_code import recognition_code
 
 def registrar_codigo(self):
         codigo = self.codigo_text.get("1.0", "end-1c")
@@ -59,3 +60,9 @@ def registrar_codigo(self):
         self.entry_comentario.delete(0, tk.END)
         self.codigo_text.delete("1.0", tk.END)
         self.label_Etiqueta.delete("1.0", tk.END)
+
+def predecir(self, event):
+     contenido = self.codigo_text.get("1.0", "end-1c")
+     predicion = recognition_code(contenido)
+     print(predicion)
+     self.combo_lenguaje.set(predicion)

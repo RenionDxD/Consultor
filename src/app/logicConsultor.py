@@ -18,7 +18,10 @@ def obtener_valores_unicos(self, datos, clave):
 
 def guardar_nota(self, event):
         # Obtener el contenido del campo de texto
+    
     contenido = self.notas_text.get("1.0", "end-1c")  # Obtiene todo el texto menos el último salto de línea
+
+    
     # Guardar el contenido en un archivo de texto
     with open("data/notas.txt", "w") as archivo:
         archivo.write(contenido)

@@ -58,6 +58,11 @@ class Aplicacion:
         self.panel_notas.pack(side="bottom", fill="both", expand=True,padx=2, pady=2)
 
 
+         # Etiqueta de notas
+        self.etiqutaNota = tk.Label(self.panel_notas, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text=">> Notas <<").pack(side="top",padx=30)
+        
+        
+        
         # Notas
         self.notas_text = tk.Text(self.panel_notas, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), wrap="none", height=7.5, width=85)
         self.notas_text.config(selectbackground=ColorLetterConstant)
@@ -77,10 +82,7 @@ class Aplicacion:
         
         
 
-        # Etiqueta de notas
-        self.etiqutaNota = tk.Label(self.panel_notas, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text=">> Notas <<").pack(side="top",padx=30)
-
-
+       
         # Inicializar dos pantallasS
         self.pantalla1 = Main(root)
         self.pantalla2 = Agregar(root)
@@ -99,13 +101,14 @@ class Aplicacion:
         self.pantalla1.pack(expand=True)
         self.notas_text.config(height=self.altura_original)
         self.btn_expandirNota.pack(side="left", padx=10)
+        self.btn_borrar.pack(side="right", padx=10)
         #self.btn_pantalla1.destroy()  # Destruir la ventana actual
 
     def mostrar_pantalla2(self):
         self.pantalla1.pack_forget()  # Ocultar pantalla 1 si está visible
         self.pantalla2.pack(expand=True)
         self.notas_text.config(height=self.altura_original)
-        self.btn_expandirNota.pack(side="left", padx=10)
+        self.btn_borrar.pack(side="right", padx=10)
         #self.pantalla1.destroy()
         #self.root.destroy()  # Destruir la ventana actual
 
@@ -113,6 +116,7 @@ class Aplicacion:
         self.pantalla1.pack_forget()
         self.pantalla2.pack_forget()
         self.btn_expandirNota.pack_forget()
+        self.btn_borrar.pack_forget()
         nueva_altura = self.notas_text['height'] + 35
         self.notas_text.config(height=nueva_altura)
 
@@ -125,9 +129,10 @@ class Aplicacion:
                 text += caracter
                 self.notas_text.delete(1.0, tk.END)
                 self.notas_text.insert(tk.END, text)
-
+                self.root.title("Cargando...")
                 root.update_idletasks()
-                time.sleep(0.0009)
+                time.sleep(0.0005)
+        self.root.title("Consultor")
           
 
     def Limpiar(self):
@@ -148,6 +153,11 @@ class Aplicacion:
     
 
 if __name__ == "__main__":
+    ####tokenizador de recognition_code
+    def tokenizeVec(sentence):
+        tokens = sentence.split()
+        return tokens
+    print("[iniciando servicios].......Espere un momento")
     root = tk.Tk()
     icono_chico = tk.PhotoImage(file="data/giftTemp.gif")
     root.iconphoto(False, icono_chico)

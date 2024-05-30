@@ -6,6 +6,8 @@ ID,Etiqueta
 3,grid
 4,getall
 4,cargar datos sql
+4,llenar grid
+4,llenar datatable al grid
 5,desactivar botones
 5,activar botones
 5,enable
@@ -14,6 +16,8 @@ ID,Etiqueta
 6,datatime excel
 7,limpiar campo fecha
 7,datetime.minvalue
+7,recetear fecha
+7,fecha min
 8,limpiar combobox
 8,limpiar cbo
 9,obtener valor combobox
@@ -26,6 +30,10 @@ ID,Etiqueta
 11,cambiar un solo dato
 11,actualizar un solo dato
 11,actualizar dato
+11,update sql
+11,sql update
+11,actualizar tabla
+11,actualizar dato en sql
 12,exportar boleano
 12,boleano en excel
 12,campo boleano excel
@@ -41,7 +49,10 @@ ID,Etiqueta
 16,combobox
 17,filtro de fecha en grid
 17,filtrar dato por fechas
+17,filtro fechas aspx
+17,poner filtro fechas en front
 18,filtrar fechas sql
+18,filtro de fechas
 19,left join
 20,validar campo fecha en javascript
 20,validar campo fecha en js
@@ -160,10 +171,6 @@ ID,Etiqueta
 55,guardar varios registros en c
 56,recorrer el xml de los datos seleccionados
 56,obtener los id del xml
-57,sql que me dio julio
-57,sql de ayer
-57,sql de uspermisosusuarios uspermisosperfiles
-57,sql de apoyo
 58,log bitacora
 58,registrar el movimiento
 58,aginsertlog
@@ -204,3 +211,116 @@ ID,Etiqueta
 64,figura salir
 64,imagen de salir
 64,poner icono de salir
+65,excel icon
+65,icono excel
+65,imagen excel
+66,funcion validar
+66,validar campos
+66,validated
+66,validacion de pop
+66,validacion de campos de pop
+67,codigo de pago aspx
+68,codigo de pago c
+69,codigo del acceso
+70,etiqueta spriteno
+70,icono spriteno
+70,icono elimnar eliminar
+70,eliminar
+70,page load js
+70,window load
+70,recargar desde js javascript
+70,recargar en js javascript
+70,window onload
+71,get sql
+71,procedimento get
+71,crear get en sql
+71,sql get
+71,get usuarios
+71,get sql prodecimiento
+72,obtner fecha
+72,sacar dato de un date
+72,poner un date en c
+72,obtener un date
+72,date
+72,fecha obtener
+72,datetime
+73,funcion oncallback llenar grid
+73,argumentos llenar grid
+73,funcion llenar grid en c
+73,funcion llenar grid en oncallback
+73,on callback
+73,customcallback
+73,oncallback funcion
+73,evento custocallback oncallback
+74,campo fecha aspx
+74,campo date
+74,date edit
+74,aspxdateedit
+74,meter fecha en aspx
+74,fechas en aspx
+74,poner campo fecha fechas
+75,obtener dato cb
+75,obtener dato de un checkbox
+75,dato check box
+75,checkbox en c
+75,checkbox en c
+75,casilla checkbox c
+76,menuitemclick ( e ) ;
+76,menuitemclick en javascript
+76,menu de java
+76,funcion menu
+76,function menu
+76,funcion menu item
+76,item menu
+76,redirigir a pagina
+76,redirigir a bienvenida bienvenido
+76,pagina maestra redirigir
+76,bienvenida.aspx
+77,menu en aspx
+77,poner menu en front aspx
+77,menu items en aspx
+77,aspxmenu
+77,boton cerrar
+78,if postback
+78,if callback
+78,funcion en page load
+78,funcion callback
+78,funcion postback post back
+79,show pop c
+79,mostrar pop en c
+79,ocultar pop en c
+79,desactivar pop en c
+79,abrir pop en c
+79,page load c
+79,page load show page load
+80,label aspx
+80,label asp
+80,etiqueta en front
+80,etiqueta en aspx
+80,label etiqueta
+80,poner etiqueta label
+81,imagen en un boton
+81,boton con imagen
+81,button image
+81,image bueton
+81,boton con item
+81,item boton imagem
+81,imagen item
+81,imagen con click
+81,clikear boton
+81,evento en imagen
+82,declare variable
+82,variable en sql
+82,decalrar variable en sql
+83,insertar datos en tabla sql
+83,insert sql
+83,sql insert
+83,insertar dato en sql
+83,insert into
+84,delete sql
+84,sql delete
+84,borrar registro
+84,borrar dato
+84,eliminar registro sql
+84,eliminar dato sql
+84,sql eliminar

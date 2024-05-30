@@ -10,7 +10,7 @@ BorderColor = "#da6b16"
 font = "Fixedsys"
 
 class Agregar(tk.Frame):
-    from modules.agregarModule.logicAgregar import registrar_codigo
+    from modules.agregarModule.logicAgregar import registrar_codigo, predecir
     def __init__(self, root):
         super().__init__(root)
         self.configure(bg=ColorBgConstant)
@@ -68,6 +68,7 @@ class Agregar(tk.Frame):
         self.codigo_text = tk.Text(self, wrap="none",background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), height=20, width=45)
         self.codigo_text.insert("1.0", "")
         self.codigo_text.pack(padx=35, pady=20)
+        self.codigo_text.bind("<KeyRelease>", self.predecir)
 
 
         self.etiqueta_info = tk.Label(self,background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text="")

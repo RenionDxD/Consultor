@@ -1,7 +1,1 @@
-nwPeGetDatos -- procedimiento cambiado
-
-nwEGenerales
-
-
-string TpRH = dr["TipoRH"].ToString();
-if (TpRH == "0") { cboTipoRH.Text = "Negativo"; } else { cboTipoRH.Text = "Positivo"; }
+nwCr/CreditosGenerales.aspx

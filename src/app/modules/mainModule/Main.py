@@ -57,6 +57,13 @@ class Main(tk.Frame):
 
 
         # Combo boxes
+        self.label_ia = tk.Label(frame_IA,background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10))
+        self.label_ia.pack(side="left")
+        self.entry_accion = tk.Entry(frame_IA, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), width=25)
+        self.entry_accion.pack(side="left")
+        self.entry_accion.bind("<KeyRelease>", self.obtener_seleccionesIA)
+
+
         self.combo_accion = ttk.Combobox(frame_accion, width=25, foreground=ColorLetterConstant, background=ColorBgConstant, font=("Fixedsys", 10) , values=self.obtener_valores_unicos(datos, "accion"))
         self.combo_accion.set(">> Seleccionar Acción")
         self.combo_accion.pack(side="left")
@@ -67,11 +74,7 @@ class Main(tk.Frame):
         self.combo_lenguaje.pack(side="left")
         self.combo_lenguaje.bind("<<ComboboxSelected>>", self.obtener_selecciones)
 
-        self.label_ia = tk.Label(frame_IA,background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10))
-        self.label_ia.pack(side="left")
-        self.entry_accion = tk.Entry(frame_IA, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), width=25)
-        self.entry_accion.pack(side="left")
-        self.entry_accion.bind("<KeyRelease>", self.obtener_seleccionesIA)
+        
         
 
 
@@ -94,8 +97,8 @@ class Main(tk.Frame):
         self.etiqueta_fecha.grid(row=1, column=0, padx=20, pady=1)
 
         # Etiqueta Veces usado
-        self.etiqueta_usado = tk.Label(self.labels_frame, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text="Veces usado:")
-        self.etiqueta_usado.grid(row=1, column=1, padx=20, pady=1)
+        #self.etiqueta_usado = tk.Label(self.labels_frame, background=ColorBgConstant, fg=ColorLetterConstant, font=(font, 10), text="Veces usado:")
+        #self.etiqueta_usado.grid(row=1, column=1, padx=20, pady=1)
 
 
 
